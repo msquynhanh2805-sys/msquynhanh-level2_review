@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>review hán ngữ 2_Ms QA</title>
+  <title>Review Level 2_Ms QA</title>
 
-  <meta property="og:title" content="review hán ngữ 2_Ms QA">
-  <meta property="og:description" content="Chương Trình Ôn Tập Từ Vựng & Câu Từ - Hán Ngữ 2">
+  <meta property="og:title" content="Review Level 2_Ms QA">
+  <meta property="og:description" content="Chương Trình Ôn Tập Từ Vựng & Câu Từ - Hán Ngữ Level 2">
   <meta property="og:type" content="website">
 
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -86,8 +86,8 @@
 
 <div class="container">
   <header>
-    <h1>📚 review hán ngữ 2_Ms QA</h1>
-    <div class="subtitle">Chương Trình Ôn Tập Từ Vựng & Câu Từ - Hán Ngữ 2</div>
+    <h1>📚 Review Level 2_Ms QA</h1>
+    <div class="subtitle">Chương Trình Ôn Tập Từ Vựng & Câu Từ - Hán Ngữ Level 2</div>
   </header>
 
   <div id="loading">⏳ Đang tải dữ liệu từ file <b>Tu_vung_Han_ngu_Bai_1-30_gop.xlsx</b>...</div>
@@ -292,7 +292,6 @@
     } else if (activeSection === 3) {
       let typingList = [];
       filtered.forEach(item => {
-        // TỪ VỰNG
         typingList.push({
           taskType: 'vocab',
           questionVi: item.meaning,
@@ -301,7 +300,6 @@
           rawItem: item
         });
 
-        // CÂU VÍ DỤ (NẾU CÓ NHIỀU CÂU PHÂN CÁCH BỞI DẤU XUỐNG DÒNG \n THÌ TÁCH THÀNH CÁC CÂU HỎI)
         if (item.example_cn && item.example_vi) {
           const exCns = item.example_cn.split('\n').map(s => s.trim()).filter(Boolean);
           const exVis = item.example_vi.split('\n').map(s => s.trim()).filter(Boolean);
@@ -392,7 +390,6 @@
     } else if (activeSection === 2) {
       document.getElementById('typeTag').innerText = "PHẦN 2: SẮP XẾP CÂU (PINYIN)";
       
-      // Chọn 1 ví dụ nếu có nhiều dòng
       let rawPinyin = currentItem.example_pinyin.split('\n')[0].trim();
       let rawVi = currentItem.example_vi.split('\n')[0].trim();
 
