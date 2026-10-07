@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luyện Tập Tiếng Trung HSK 1 - Ms QA</title>
+  <title>Level 2 _ Ms QA.Hantalk</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+      background: linear-gradient(135deg, #f0fdf4 0%, #e6fffa 50%, #f0f9ff 100%);
       min-height: 100vh;
       color: #1e293b;
       user-select: none;
@@ -20,8 +20,8 @@
       background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 0 15px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 20px 40px -15px rgba(20, 184, 166, 0.08), 0 0 15px rgba(0, 0, 0, 0.02);
     }
     .glass-modal {
       background: rgba(255, 255, 255, 0.95);
@@ -30,7 +30,6 @@
       box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
     }
     
-    /* Animations */
     @keyframes float {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-8px) rotate(1deg); }
@@ -56,12 +55,8 @@
       50% { transform: translateY(-30px) rotate(-15deg); opacity: 0.8; }
       100% { transform: translateY(-60px) rotate(-30deg); opacity: 0; }
     }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
-    }
     @keyframes popIn {
-      0% { transform: scale(0.85); opacity: 0; }
+      0% { transform: scale(0.92); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -72,48 +67,41 @@
     .lid-open { animation: lidOpen 0.8s forwards ease-out; }
     .animate-pop-in { animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.03); }
-    ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.4); border-radius: 999px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.6); }
-
-    .glow-teal { box-shadow: 0 0 25px rgba(20, 184, 166, 0.3); }
-    .glow-amber { box-shadow: 0 0 25px rgba(245, 158, 11, 0.3); }
+    ::-webkit-scrollbar-thumb { background: rgba(20, 184, 166, 0.3); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(20, 184, 166, 0.5); }
   </style>
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800 flex flex-col justify-between relative overflow-x-hidden">
 
-  <!-- Background decorative elements -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl animate-float"></div>
-    <div class="absolute top-1/3 -right-24 w-96 h-96 bg-indigo-200/40 rounded-full blur-3xl animate-float" style="animation-delay: -2s;"></div>
+    <div class="absolute top-1/3 -right-24 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl animate-float" style="animation-delay: -2s;"></div>
     <div class="absolute -bottom-24 left-1/3 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl animate-float" style="animation-delay: -4s;"></div>
   </div>
 
-  <!-- Header Header Nav -->
-  <header class="relative z-10 w-full max-w-5xl mx-auto px-4 py-4 flex items-center justify-between border-b border-slate-200/60">
+  <header class="relative z-10 w-full max-w-5xl mx-auto px-4 py-4 flex items-center justify-between border-b border-teal-100/60">
     <div onclick="goHome()" class="flex items-center space-x-3 cursor-pointer group">
-      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-600 to-emerald-400 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
         華
       </div>
       <div>
-        <h1 class="text-lg font-bold bg-gradient-to-r from-slate-800 via-teal-800 to-slate-900 bg-clip-text text-transparent">
-          HSK 1 - Ms QA
+        <h1 class="text-lg font-bold bg-gradient-to-r from-teal-800 via-emerald-700 to-slate-800 bg-clip-text text-transparent">
+          Level 2 _ Ms QA.Hantalk
         </h1>
-        <p class="text-xs text-slate-500">Tiếng Trung Sơ Cấp · 基础汉语</p>
+        <p class="text-xs text-teal-600/80">Góc nhỏ ôn luyện HSK 2 nhẹ nhàng · 汉语二级</p>
       </div>
     </div>
 
-    <!-- Header Stats / Options -->
     <div id="headerStats" class="hidden items-center space-x-4 text-sm font-medium">
-      <div class="flex items-center space-x-1.5 px-3 py-1.5 bg-amber-50 text-amber-700 rounded-full border border-amber-200/60">
-        <i class="fa-solid fa-fire text-amber-500"></i>
+      <div class="flex items-center space-x-1.5 px-3 py-1.5 bg-amber-50 text-amber-700 rounded-full border border-amber-200/60 shadow-sm">
+        <i class="fa-solid fa-star text-amber-500"></i>
         <span id="streakCount">0</span>
-        <span class="text-xs text-amber-600/80">Điểm (分数)</span>
+        <span class="text-xs text-amber-600/80">Điểm (积分)</span>
       </div>
-      <button onclick="pauseLesson()" class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors flex items-center space-x-1.5 border border-slate-200">
-        <i class="fa-solid fa-pause"></i>
+      <button onclick="pauseLesson()" class="px-3.5 py-1.5 rounded-full bg-white text-slate-700 hover:bg-slate-50 transition-colors flex items-center space-x-1.5 border border-slate-200 shadow-sm">
+        <i class="fa-solid fa-pause text-teal-600"></i>
         <span class="text-xs">Tạm dừng (暂停)</span>
       </button>
     </div>
@@ -124,34 +112,35 @@
     <!-- 1. HOME SCREEN (Trang chủ) -->
     <section id="viewHome" class="space-y-8 my-auto py-4 animate-pop-in">
       
-      <!-- Greeting Banner -->
-      <div class="glass-card rounded-3xl p-6 md:p-8 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border border-white/80">
-        <div class="space-y-3 z-10 max-w-xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200 text-xs font-semibold">
-            <span class="w-2 h-2 rounded-full bg-teal-500 animate-ping"></span>
-            Học tập mỗi ngày · 每日学习
+      <!-- Friendly Greeting Banner -->
+      <div class="glass-card rounded-3xl p-6 md:p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-white">
+        <div class="space-y-3 z-10 max-w-xl text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100/80 text-emerald-800 border border-emerald-200 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Mỗi ngày tiến bộ một chút · 每天进步一点点
           </div>
           <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight leading-tight">
-            你好！准备好开始了吗？
-            <span class="block text-lg md:text-xl font-medium text-teal-600 mt-1">
-              Xin chào! Bạn đã sẵn sàng bắt đầu chưa?
+            <span id="homeGreetingCn">你好！今天过得怎么样？</span>
+            <span id="homeGreetingVi" class="block text-base md:text-lg font-medium text-teal-600 mt-1">
+              Chào bạn! Hôm nay của bạn thế nào?
             </span>
           </h2>
           <p class="text-sm text-slate-600 leading-relaxed">
-            Hệ thống ôn luyện từ vựng, mẫu câu và gõ phím HSK 1 toàn diện. Chuẩn bị vững chắc cho hành trình chinh phục tiếng Trung của bạn!
+            Góc nhỏ cùng Ms QA tích lũy từ vựng, mẫu câu và phản xạ gõ phím HSK 2 nhẹ nhàng mỗi ngày. Chọn bài học rồi bắt đầu thôi nào! 🌱
           </p>
         </div>
 
         <div class="relative z-10 flex flex-col items-center justify-center shrink-0">
-          <div class="w-28 h-28 md:w-32 md:h-32 rounded-3xl bg-gradient-to-tr from-teal-500 to-emerald-400 p-1 shadow-xl shadow-teal-500/20">
-            <div class="w-full h-full bg-slate-900/10 rounded-[22px] flex items-center justify-center text-white text-5xl">
-              🇨🇳
+          <div class="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-tr from-teal-400 to-emerald-400 p-1 shadow-lg shadow-teal-500/20">
+            <div class="w-full h-full bg-white rounded-[22px] flex flex-col items-center justify-center text-slate-700">
+              <span class="text-3xl">☕</span>
+              <span class="text-[11px] font-bold mt-1 text-teal-700">Level 2</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RESUME PROGRESS CARD (If saved) -->
+      <!-- RESUME PROGRESS CARD -->
       <div id="homeResumeCard" class="hidden">
         <div class="glass-card bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-indigo-500/10 border-teal-300/50 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div class="flex items-center space-x-4">
@@ -160,99 +149,105 @@
             </div>
             <div>
               <div class="flex items-center gap-2">
-                <h3 class="font-bold text-slate-800 text-base">Tiếp tục ôn tập · 继续复习</h3>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-100 text-teal-800">Đang dở</span>
+                <h3 class="font-bold text-slate-800 text-base">Học dở hôm trước · 继续上次学习</h3>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-100 text-teal-800">Đang chờ</span>
               </div>
               <p id="resumeCardText" class="text-xs text-slate-600 mt-0.5">
-                Bạn đang dừng ở Bài 1 · Câu 5
+                Bạn đang dừng ở Bài 1-2 · Câu 3/10
               </p>
             </div>
           </div>
           <button onclick="resumeSavedLesson()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-all shadow-md shadow-teal-600/20 flex items-center justify-center space-x-2">
             <i class="fa-solid fa-play text-xs"></i>
-            <span>▶️ Tiếp tục · 继续</span>
+            <span>▶️ Học tiếp nhé · 继续</span>
           </button>
         </div>
       </div>
 
-      <!-- MODE SELECTOR -->
       <div class="space-y-4">
         <div class="flex items-center justify-between">
           <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-            <i class="fa-solid fa-cubes text-teal-600"></i>
-            Chọn Chế Độ Học · 选择学习模式
+            <i class="fa-solid fa-shapes text-teal-600"></i>
+            Chọn Cách Luyện Tập · 选择练习方式
           </h3>
-          <span class="text-xs text-slate-500">HSK 1 Standard Curriculum</span>
+          <span class="text-xs text-teal-600/80 font-medium">HSK 2 Curriculum</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- Card 1: Từ Vựng Flashcard -->
-          <div onclick="startMode('vocabulary')" class="glass-card hover:border-teal-500/50 transition-all p-5 rounded-2xl cursor-pointer group hover:-translate-y-1 hover:shadow-lg border border-white">
-            <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl mb-3 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+          <!-- Card 1: Flashcard -->
+          <div id="modeCardVocab" onclick="setMode('vocabulary')" class="glass-card hover:border-teal-500 transition-all p-5 rounded-2xl cursor-pointer border-2 border-teal-500 bg-teal-50/30 shadow-md">
+            <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl mb-3">
               📖
             </div>
-            <h4 class="font-bold text-slate-800 text-base">Ôn Từ Vựng · 复习词汇</h4>
-            <p class="text-xs text-slate-500 mt-1">Thẻ ghi nhớ Flashcards, chữ Hán, Pinyin & nghĩa tiếng Việt</p>
+            <h4 class="font-bold text-slate-800 text-base">Từ Vựng Flashcard · 词汇卡片</h4>
+            <p class="text-xs text-slate-500 mt-1">Nhớ chữ Hán, Pinyin và nghĩa Việt siêu tự nhiên</p>
           </div>
 
-          <!-- Card 2: Sắp Xếp Câu -->
-          <div onclick="startMode('arrange')" class="glass-card hover:border-emerald-500/50 transition-all p-5 rounded-2xl cursor-pointer group hover:-translate-y-1 hover:shadow-lg border border-white">
-            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-3 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+          <!-- Card 2: Arrange -->
+          <div id="modeCardArrange" onclick="setMode('arrange')" class="glass-card hover:border-teal-500 transition-all p-5 rounded-2xl cursor-pointer border-2 border-transparent">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-3">
               🧩
             </div>
             <h4 class="font-bold text-slate-800 text-base">Sắp Xếp Câu · 连词成句</h4>
-            <p class="text-xs text-slate-500 mt-1">Ghép các từ thành câu đúng ngữ pháp tiếng Trung</p>
+            <p class="text-xs text-slate-500 mt-1">Lắp ghép các từ thành câu đúng ngữ pháp</p>
           </div>
 
-          <!-- Card 3: Luyện Gõ Pinyin -->
-          <div onclick="startMode('typing')" class="glass-card hover:border-indigo-500/50 transition-all p-5 rounded-2xl cursor-pointer group hover:-translate-y-1 hover:shadow-lg border border-white">
-            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl mb-3 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+          <!-- Card 3: Typing -->
+          <div id="modeCardTyping" onclick="setMode('typing')" class="glass-card hover:border-teal-500 transition-all p-5 rounded-2xl cursor-pointer border-2 border-transparent">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl mb-3">
               ⌨️
             </div>
             <h4 class="font-bold text-slate-800 text-base">Luyện Gõ Phím · 拼音打字</h4>
-            <p class="text-xs text-slate-500 mt-1">Gõ Pinyin chính xác phản xạ câu tiếng Trung</p>
+            <p class="text-xs text-slate-500 mt-1">Tăng phản xạ gõ phím Pinyin tiếng Trung</p>
           </div>
         </div>
 
-        <!-- Scope Option Cards -->
         <div class="glass-card rounded-2xl p-5 mt-4 space-y-4">
-          <h4 class="font-semibold text-sm text-slate-700 border-b border-slate-200/80 pb-2">
-            Phạm Vi Luyện Tập · 练习范围
+          <h4 class="font-semibold text-sm text-slate-700 border-b border-slate-200/80 pb-2 flex items-center gap-2">
+            <i class="fa-solid fa-book-bookmark text-teal-600"></i>
+            Phạm Vi Bài Học · 选择课程范围
           </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button onclick="selectLessonRange('all')" id="btnScopeAll" class="px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left">
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button onclick="setScope('all')" id="btnScopeAll" class="px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left shadow-sm">
               <div>
-                <p class="font-bold text-sm">Ôn Tất Cả (Bài 1 - 30) · 全部复习</p>
-                <p class="text-[11px] opacity-80">Toàn bộ từ vựng & cấu trúc HSK1</p>
+                <p class="font-bold text-sm">Toàn bộ HSK 2 · 全部课程</p>
+                <p class="text-[11px] opacity-80">Ôn tổng hợp tất cả các bài</p>
               </div>
-              <i class="fa-solid fa-circle-check text-teal-600 text-lg"></i>
+              <i class="fa-solid fa-circle-check text-teal-600 text-base"></i>
             </button>
 
-            <button onclick="openLessonPicker()" id="btnScopeSelect" class="px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all">
+            <button onclick="openMultiLessonPicker('range')" id="btnScopeRange" class="px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all">
               <div>
-                <p class="font-bold text-sm text-slate-800">Chọn Theo Bài · 按课选择</p>
-                <p id="selectedLessonText" class="text-[11px] text-slate-500">Đang chọn: Bài 1</p>
+                <p class="font-bold text-sm text-slate-800">Chọn Khoảng Bài · 课程范围</p>
+                <p id="rangeScopeText" class="text-[11px] text-slate-500">Ví dụ: Bài 1-2, 1-5...</p>
               </div>
-              <i class="fa-solid fa-sliders text-slate-400 text-lg"></i>
+              <i class="fa-solid fa-layer-group text-slate-400 text-base"></i>
+            </button>
+
+            <button onclick="openMultiLessonPicker('custom')" id="btnScopeCustom" class="px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all">
+              <div>
+                <p class="font-bold text-sm text-slate-800">Tùy Chọn Bài · 自选多课</p>
+                <p id="customScopeText" class="text-[11px] text-slate-500">Chọn từng bài bất kỳ</p>
+              </div>
+              <i class="fa-solid fa-list-check text-slate-400 text-base"></i>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Start Practice CTA Button -->
+      <!-- Start Button -->
       <div class="text-center pt-2">
         <button onclick="initSession()" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold text-lg shadow-xl shadow-teal-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center space-x-3 mx-auto">
-          <span>🚀 Bắt Đầu Ôn Tập · 开始复习</span>
+          <span>🚀 Bắt Đầu Ôn Nào · 开始学习</span>
         </button>
       </div>
     </section>
 
-    <!-- 2. EXERCISE SCREEN (Màn hình luyện tập) -->
     <section id="viewExercise" class="hidden space-y-6 animate-pop-in">
-      <!-- Progress Bar -->
       <div class="glass-card rounded-2xl p-4 space-y-2">
         <div class="flex justify-between items-center text-xs text-slate-600 font-medium">
-          <span id="exModeTitle">Ôn Từ Vựng · 复习词汇</span>
+          <span id="exModeTitle">Từ Vựng Flashcard · 词汇卡片</span>
           <span id="exProgressCounter">Câu 1 / 10</span>
         </div>
         <div class="w-full bg-slate-200/80 rounded-full h-2.5 overflow-hidden">
@@ -260,41 +255,36 @@
         </div>
       </div>
 
-      <!-- Exercise Content Container -->
       <div id="exerciseCard" class="glass-card rounded-3xl p-6 md:p-8 space-y-6 relative border border-white">
-        <!-- Question prompt & Audio -->
         <div class="text-center space-y-3">
           <span id="qBadge" class="inline-block px-3 py-1 bg-teal-50 text-teal-700 text-xs font-bold rounded-full border border-teal-200">
             Bài 1 · 第一课
           </span>
           <h2 id="qChinese" class="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-wide font-sans">
-            你好
+            旅游
           </h2>
           <div class="flex items-center justify-center space-x-2">
-            <span id="qPinyin" class="text-base text-teal-600 font-medium">nǐ hǎo</span>
+            <span id="qPinyin" class="text-base text-teal-600 font-medium">lǚyóu</span>
             <button onclick="speakCurrentText()" class="w-8 h-8 rounded-full bg-teal-100 text-teal-700 hover:bg-teal-200 flex items-center justify-center transition-colors">
               <i class="fa-solid fa-volume-high text-xs"></i>
             </button>
           </div>
           <p id="qVietnamese" class="text-sm text-slate-500 italic">
-            (Xin chào)
+            (Du lịch)
           </p>
         </div>
 
         <hr class="border-slate-100">
 
-        <!-- Dynamic Answer Area -->
         <div id="interactiveArea" class="min-h-[160px] flex flex-col justify-center">
-          <!-- Populated by JS based on mode -->
+          <!-- Dynamic rendering based on mode -->
         </div>
 
-        <!-- Feedback Box -->
         <div id="feedbackBox" class="hidden rounded-2xl p-4 text-center text-sm font-medium transition-all animate-pop-in">
           <p id="feedbackChinese" class="font-bold text-base"></p>
           <p id="feedbackVietnamese" class="text-xs mt-1 opacity-90"></p>
         </div>
 
-        <!-- Next / Submit Button -->
         <div class="pt-2">
           <button id="btnCheckAnswer" onclick="checkAnswer()" class="w-full py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-base transition-all shadow-md shadow-teal-600/20">
             Kiểm Tra Đáp Án · 检查答案
@@ -303,11 +293,10 @@
       </div>
     </section>
 
-    <!-- 3. MYSTERY GIFT BOXES AT LESSON END (Hộp quà cuối buổi) -->
     <section id="viewGiftEnd" class="hidden space-y-8 animate-pop-in py-6">
       <div class="text-center space-y-2 max-w-xl mx-auto">
         <div class="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold border border-amber-200/80">
-          🎉 Hoàn thành xuất sắc! · 恭喜完成！
+          🎉 Hoàn thành rất tốt! · 棒棒哒！
         </div>
         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800">
           🎁 今天，选一句话送给自己吧。
@@ -317,9 +306,7 @@
         </p>
       </div>
 
-      <!-- 3 Gift Boxes Grid -->
       <div id="giftGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-        <!-- Box 1 -->
         <div onclick="openGiftBox(0)" class="gift-card glass-card rounded-3xl p-6 text-center cursor-pointer border-2 border-amber-200 hover:border-amber-400 hover:scale-105 transition-all duration-300 relative group shadow-lg">
           <div class="absolute -top-3 right-4 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
             Gift #1
@@ -330,7 +317,6 @@
           </div>
         </div>
 
-        <!-- Box 2 -->
         <div onclick="openGiftBox(1)" class="gift-card glass-card rounded-3xl p-6 text-center cursor-pointer border-2 border-teal-200 hover:border-teal-400 hover:scale-105 transition-all duration-300 relative group shadow-lg">
           <div class="absolute -top-3 right-4 bg-teal-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
             Gift #2
@@ -341,7 +327,6 @@
           </div>
         </div>
 
-        <!-- Box 3 -->
         <div onclick="openGiftBox(2)" class="gift-card glass-card rounded-3xl p-6 text-center cursor-pointer border-2 border-indigo-200 hover:border-indigo-400 hover:scale-105 transition-all duration-300 relative group shadow-lg">
           <div class="absolute -top-3 right-4 bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
             Gift #3
@@ -353,16 +338,11 @@
         </div>
       </div>
 
-      <!-- Revealed Quote Container -->
       <div id="revealedQuoteArea" class="hidden glass-card rounded-3xl p-8 max-w-2xl mx-auto text-center space-y-4 border-2 border-amber-300 bg-amber-50/40 animate-pop-in">
         <div class="text-3xl text-amber-500">✨</div>
-        <h3 id="quoteChinese" class="text-2xl font-extrabold text-slate-800">
-          <!-- Chinese Quote -->
-        </h3>
+        <h3 id="quoteChinese" class="text-2xl font-extrabold text-slate-800"></h3>
         <p id="quotePinyin" class="text-sm font-medium text-teal-600"></p>
-        <p id="quoteVietnamese" class="text-base font-semibold text-slate-700 italic border-t border-amber-200/60 pt-3">
-          <!-- Vietnamese Translation -->
-        </p>
+        <p id="quoteVietnamese" class="text-base font-semibold text-slate-700 italic border-t border-amber-200/60 pt-3"></p>
 
         <div class="pt-4">
           <button onclick="goHome()" class="px-8 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-lg shadow-teal-600/20 transition-all flex items-center space-x-2 mx-auto">
@@ -374,8 +354,6 @@
     </section>
   </main>
 
-
-  <!-- CUSTOM MODAL 1: PAUSE MODAL (Khu vực Tạm Dừng) -->
   <div id="modalPause" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="glass-modal max-w-sm w-full rounded-3xl p-6 text-center space-y-6 animate-pop-in border border-white">
       <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl mx-auto shadow-inner">
@@ -383,53 +361,49 @@
       </div>
 
       <div class="space-y-1">
-        <h3 class="text-xl font-bold text-slate-800">Tạm Dừng Bài Học</h3>
-        <p class="text-xs text-teal-600 font-semibold">课程已暂停 · Tiến độ đã được lưu lại</p>
+        <h3 class="text-xl font-bold text-slate-800">Nghỉ tay một chút nhé · 稍作休息</h3>
+        <p class="text-xs text-teal-600 font-semibold">Tiến độ bài học đã được tự động lưu lại</p>
       </div>
 
       <div class="space-y-3 pt-2">
-        <!-- Main Primary Resume Button -->
         <button onclick="resumeFromPause()" class="w-full py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-base shadow-lg shadow-teal-600/30 transition-all flex items-center justify-center space-x-2">
-          <span>▶️ Tiếp Tục · 继续</span>
+          <span>▶️ Học tiếp thôi · 继续</span>
         </button>
 
-        <!-- Secondary End Option -->
         <div class="pt-2 border-t border-slate-200/80 space-y-1">
           <button onclick="confirmPauseAndExit()" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors flex items-center justify-center space-x-2">
-            <span>⏸️ Tạm dừng & kết thúc phiên</span>
+            <span>🏠 Về trang chủ (Lưu lại sau học tiếp)</span>
           </button>
-          <p class="text-[11px] text-slate-400">
-            Quay lại sau cũng được, tiến độ sẽ được lưu tự động.
-          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CUSTOM MODAL 2: LESSON PICKER MODAL -->
-  <div id="modalLessonPicker" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+  <div id="modalMultiLesson" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="glass-modal max-w-md w-full rounded-3xl p-6 space-y-4 animate-pop-in border border-white">
       <div class="flex justify-between items-center border-b border-slate-200 pb-3">
         <div>
-          <h3 class="font-bold text-slate-800 text-lg">Chọn Bài Học · 选择课程</h3>
-          <p class="text-xs text-slate-500">Danh sách 30 bài HSK 1</p>
+          <h3 id="multiModalTitle" class="font-bold text-slate-800 text-lg">Chọn Bài Học HSK 2</h3>
+          <p id="multiModalSubtitle" class="text-xs text-slate-500">Tùy chọn phạm vi ôn luyện thích hợp</p>
         </div>
-        <button onclick="closeLessonPicker()" class="text-slate-400 hover:text-slate-600">
+        <button onclick="closeMultiLessonPicker()" class="text-slate-400 hover:text-slate-600">
           <i class="fa-solid fa-xmark text-lg"></i>
         </button>
       </div>
 
-      <div id="lessonGrid" class="grid grid-cols-5 gap-2 max-h-60 overflow-y-auto p-1">
-        <!-- Populated via JS -->
+      <!-- Content Area for Range Selector or Multi-Checkboxes -->
+      <div id="multiLessonContent" class="space-y-4 max-h-64 overflow-y-auto p-1">
+        <!-- Dynamically filled -->
       </div>
 
-      <button onclick="closeLessonPicker()" class="w-full py-2.5 rounded-xl bg-teal-600 text-white font-bold text-xs mt-2">
-        Xác Nhận · 确认
-      </button>
+      <div class="pt-2">
+        <button onclick="applyMultiLessonSelection()" class="w-full py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-md shadow-teal-600/20">
+          Xác Nhận · 确认选择
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- CUSTOM MODAL 3: GENERIC CONFIRMATION / NOTICE MODAL -->
   <div id="modalNotice" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="glass-modal max-w-sm w-full rounded-3xl p-6 text-center space-y-4 animate-pop-in border border-white">
       <div id="noticeIcon" class="w-12 h-12 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center text-xl mx-auto">
@@ -439,144 +413,210 @@
         <h3 id="noticeTitle" class="font-bold text-slate-800 text-lg">Thông Báo</h3>
         <p id="noticeDesc" class="text-xs text-slate-600 mt-1 leading-relaxed"></p>
       </div>
-      <div id="noticeActions" class="flex gap-2 pt-2">
+      <div class="pt-2">
         <button id="btnNoticePrimary" class="w-full py-2.5 rounded-xl bg-teal-600 text-white font-bold text-xs">
-          Đồng ý
+          Hiểu rồi · 知道了
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Footer Footer -->
-  <footer class="relative z-10 text-center py-4 text-xs text-slate-400 border-t border-slate-200/40">
-    <p>HSK 1 Interactive Learning Platform · Ms QA</p>
-    <p class="text-[10px] text-slate-400/80 mt-0.5">Tất cả nội dung tiếng Trung đi kèm phiên âm & bản dịch tiếng Việt</p>
+  <!-- Footer -->
+  <footer class="relative z-10 text-center py-4 text-xs text-slate-400 border-t border-teal-100/40">
+    <p>Level 2 _ Ms QA.Hantalk · HSK 2 Interactive Practice</p>
+    <p class="text-[10px] text-slate-400/80 mt-0.5">Tiếng Trung giao tiếp & luyện thi nhẹ nhàng mỗi ngày</p>
   </footer>
 
   <script>
     // -------------------------------------------------------------
-    // DATA STORE: HSK 1 Vocabulary & Sentences (Preserved & Full)
+    // HSK 2 LESSON & VOCABULARY DATASET
     // -------------------------------------------------------------
     const LESSON_DATA = [
       {
         lesson: 1,
-        title: "Bài 1: Xin chào · 第一课：你好",
+        title: "Bài 1: 九月去北京旅游最好 · Tháng 9 đi Bắc Kinh du lịch tốt nhất",
         vocab: [
-          { cn: "你好", py: "nǐ hǎo", vi: "Xin chào" },
-          { cn: "您好", py: "nín hǎo", vi: "Chào ngài / Chào bác" },
-          { cn: "对不起", py: "duìbuqǐ", vi: "Xin lỗi" },
-          { cn: "没关系", py: "méi guānxi", vi: "Không sao đâu" }
+          { cn: "旅游", py: "lǚyóu", vi: "Du lịch" },
+          { cn: "觉得", py: "juéde", vi: "Cảm thấy / Nghĩ rằng" },
+          { cn: "最", py: "zuì", vi: "Nhất" },
+          { cn: "为什么", py: "wèishénme", vi: "Tại sao" },
+          { cn: "也", py: "yě", vi: "Cũng" },
+          { cn: "运动", py: "yùndòng", vi: "Thể thao / Vận động" },
+          { cn: "踢足球", py: "tī zúqiú", vi: "Đá bóng" },
+          { cn: "一起", py: "yìqǐ", vi: "Cùng nhau" }
         ],
         sentences: [
-          { cn: "你好！", py: "Nǐ hǎo!", vi: "Xin chào!", words: ["你好！"] },
-          { cn: "对不起，没关系。", py: "Duìbuqǐ, méi guānxi.", vi: "Xin lỗi, không có gì.", words: ["对不起，", "没关系。"] }
+          { cn: "九月去北京旅游最好。", py: "Jiǔyuè qù Běijīng lǚyóu zuì hǎo.", vi: "Tháng 9 đi Bắc Kinh du lịch là tốt nhất.", words: ["九月", "去北京", "旅游", "最好。"] },
+          { cn: "你觉得什么时候去最好？", py: "Nǐ juéde shénme shíhou qù zuì hǎo?", vi: "Bạn cảm thấy khi nào đi là tốt nhất?", words: ["你觉得", "什么时候", "去", "最好？"] },
+          { cn: "下午我们一起去踢足球吧。", py: "Xiàwǔ wǒmen yìqǐ qù tī zúqiú ba.", vi: "Chiều nay chúng ta cùng đi đá bóng nhé.", words: ["下午", "我们", "一起去", "踢足球吧。"] }
         ]
       },
       {
         lesson: 2,
-        title: "Bài 2: Cảm ơn bạn · 第二课：谢谢你",
+        title: "Bài 2: 我每天六点起床 · Tôi dậy từ 6 giờ mỗi ngày",
         vocab: [
-          { cn: "谢谢", py: "xièxie", vi: "Cảm ơn" },
-          { cn: "不客气", py: "bú kèqi", vi: "Đừng khách khí / Không có chi" },
-          { cn: "再见", py: "zàijiàn", vi: "Tạm biệt" }
+          { cn: "起床", py: "qǐchuáng", vi: "Thức dậy" },
+          { cn: "跑步", py: "pǎobù", vi: "Chạy bộ" },
+          { cn: "吃药", py: "chī yào", vi: "Uống thuốc" },
+          { cn: "身体", py: "shēntǐ", vi: "Sức khỏe / Thân thể" },
+          { cn: "出院", py: "chūyuàn", vi: "Xuất viện" },
+          { cn: "高", py: "gāo", vi: "Cao" },
+          { cn: "忙", py: "máng", vi: "Bận" },
+          { cn: "时间", py: "shíjiān", vi: "Thời gian" }
         ],
         sentences: [
-          { cn: "谢谢你！", py: "Xièxie nǐ!", vi: "Cảm ơn bạn!", words: ["谢谢", "你！"] },
-          { cn: "不客气，再见！", py: "Bú kèqi, zàijiàn!", vi: "Không có chi, tạm biệt!", words: ["不客气，", "再见！"] }
+          { cn: "我每天六点起床。", py: "Wǒ měitiān liù diǎn qǐchuáng.", vi: "Tôi thức dậy lúc 6 giờ mỗi ngày.", words: ["我每天", "六点", "起床。"] },
+          { cn: "你每天几点跑步？", py: "Nǐ měitiān jǐ diǎn pǎobù?", vi: "Mỗi ngày bạn chạy bộ lúc mấy giờ?", words: ["你每天", "几点", "跑步？"] },
+          { cn: "别忘了按时吃药。", py: "Bié wàng le ànshí chī yào.", vi: "Đừng quên uống thuốc đúng giờ nhé.", words: ["别忘了", "按时", "吃药。"] }
         ]
       },
       {
         lesson: 3,
-        title: "Bài 3: Bạn tên là gì · 第三课：你叫什么名字",
+        title: "Bài 3: 左边那个红色的是我的 · Cái màu đỏ bên trái là của tôi",
         vocab: [
-          { cn: "叫", py: "jiào", vi: "Tên là / Gọi là" },
-          { cn: "什么", py: "shénme", vi: "Cái gì" },
-          { cn: "名字", py: "míngzi", vi: "Tên" },
-          { cn: "我", py: "wǒ", vi: "Tôi" }
+          { cn: "手表", py: "shǒubiǎo", vi: "Đồng đeo tay" },
+          { cn: "报纸", py: "bàozhǐ", vi: "Báo chí" },
+          { cn: "牛奶", py: "niúnǎi", vi: "Sữa bò" },
+          { cn: "房间", py: "fángjiān", vi: "Căn phòng" },
+          { cn: "丈夫", py: "zhàngfu", vi: "Chồng" },
+          { cn: "红色", py: "hóngsè", vi: "Màu đỏ" },
+          { cn: "左边", py: "zuǒbian", vi: "Bên trái" },
+          { cn: "右边", py: "yòubian", vi: "Bên phải" }
         ],
         sentences: [
-          { cn: "你叫什么名字？", py: "Nǐ jiào shénme míngzi?", vi: "Bạn tên là gì?", words: ["你", "叫", "什么", "名字？"] },
-          { cn: "我叫李月。", py: "Wǒ jiào Lǐ Yuè.", vi: "Tôi tên là Lý Nguyệt.", words: ["我", "叫", "李月。"] }
+          { cn: "左边那个红色的是我的。", py: "Zuǒbian nàge hóngsè de shì wǒ de.", vi: "Cái màu đỏ bên trái là của tôi.", words: ["左边", "那个红色的", "是我的。"] },
+          { cn: "这是今天新来的报纸。", py: "Zhè shì jīntiān xīn lái de bàozhǐ.", vi: "Đây là tờ báo mới chuyển đến hôm nay.", words: ["这是", "今天", "新来的", "报纸。"] }
         ]
       },
       {
         lesson: 4,
-        title: "Bài 4: Thầy giáo là người Trung Quốc · 第四课：他是汉语老师",
+        title: "Bài 4: 这个工作是他帮我介绍的 · Công việc này do anh ấy giới thiệu",
         vocab: [
-          { cn: "是", py: "shì", vi: "Là" },
-          { cn: "老师", py: "lǎoshī", vi: "Giáo viên / Thầy cô" },
-          { cn: "学生", py: "xuésheng", vi: "Học sinh / Sinh viên" },
-          { cn: "人", py: "rén", vi: "Người" }
+          { cn: "生日", py: "shēngrì", vi: "Sinh nhật" },
+          { cn: "快乐", py: "kuàilè", vi: "Vui vẻ / Hạnh phúc" },
+          { cn: "给", py: "gěi", vi: "Cho / Cho ai cái gì" },
+          { cn: "接", py: "jiē", vi: "Đón / Nhận (cuộc gọi)" },
+          { cn: "晚上", py: "wǎnshang", vi: "Buổi tối" },
+          { cn: "非常", py: "fēicháng", vi: "Rất / Cực kỳ" },
+          { cn: "开始", py: "kāishǐ", vi: "Bắt đầu" },
+          { cn: "介绍", py: "jièshào", vi: "Giới thiệu" }
         ],
         sentences: [
-          { cn: "他是汉语老师。", py: "Tā shì Hànyǔ lǎoshī.", vi: "Thầy ấy là giáo viên tiếng Trung.", words: ["他", "是", "汉语", "老师。"] },
-          { cn: "我是中国人。", py: "Wǒ shì Zhōngguó rén.", vi: "Tôi là người Trung Quốc.", words: ["我", "是", "中国", "人。"] }
+          { cn: "祝你生日快乐！", py: "Zhù nǐ shēngrì kuàilè!", vi: "Chúc bạn sinh nhật vui vẻ!", words: ["祝你", "生日", "快乐！"] },
+          { cn: "这个工作是他帮我介绍的。", py: "Zhège gōngzuò shì tā bāng wǒ jièshào de.", vi: "Công việc này do anh ấy giới thiệu cho tôi.", words: ["这个工作", "是他", "帮我", "介绍的。"] }
         ]
       },
       {
         lesson: 5,
-        title: "Bài 5: Cô ấy học sinh trường nào · 第五课：她女儿今年二十岁",
+        title: "Bài 5: 就买这件吧 · Vậy thì mua cái này đi",
         vocab: [
-          { cn: "岁", py: "suì", vi: "Tuổi" },
-          { cn: "多大", py: "duō dà", vi: "Bao nhiêu tuổi" },
-          { cn: "女儿", py: "nǚ'ér", vi: "Con gái" }
+          { cn: "外面", py: "wàimian", vi: "Bên ngoài" },
+          { cn: "准备", py: "zhǔnbèi", vi: "Chuẩn bị" },
+          { cn: "就", py: "jiù", vi: "Thì / Chính là" },
+          { cn: "鱼", py: "yú", vi: "Con cá" },
+          { cn: "件", py: "jiàn", vi: "Chiếc / Cái (áo, việc)" },
+          { cn: "还", py: "hái", vi: "Vẫn / Còn" },
+          { cn: "可以", py: "kěyǐ", vi: "Có thể / Được" },
+          { cn: "意思", py: "yìsi", vi: "Ý nghĩa / Thú vị" }
         ],
         sentences: [
-          { cn: "你今年多大？", py: "Nǐ jīnnián duō dà?", vi: "Năm nay bạn bao nhiêu tuổi?", words: ["你", "今年", "多大？"] }
+          { cn: "我们晚上吃什么？就吃鱼吧。", py: "Wǒmen wǎnshang chī shénme? Jiù chī yú ba.", vi: "Tối nay chúng ta ăn gì? Vậy ăn cá nhé.", words: ["我们晚上", "吃什么？", "就吃鱼吧。"] },
+          { cn: "这件衣服真好看！", py: "Zhè jiàn yīfu zhēn hǎokàn!", vi: "Bộ quần áo này đẹp quá!", words: ["这件衣服", "真好看！"] }
+        ]
+      },
+      {
+        lesson: 6,
+        title: "Bài 6: 你怎么不吃了 · Sao bạn không ăn nữa",
+        vocab: [
+          { cn: "门", py: "mén", vi: "Cửa" },
+          { cn: "羊肉", py: "yángròu", vi: "Thịt cừu" },
+          { cn: "好吃", py: "hǎochī", vi: "Ngon" },
+          { cn: "面条", py: "miàntiáo", vi: "Mì sợi" },
+          { cn: "打篮球", py: "dǎ lánqiú", vi: "Chơi bóng rổ" },
+          { cn: "因为", py: "yīnwèi", vi: "Bởi vì" },
+          { cn: "所以", py: "suǒyǐ", vi: "Cho nên" },
+          { cn: "游泳", py: "yóuyǒng", vi: "Bơi lội" }
+        ],
+        sentences: [
+          { cn: "你怎么不吃了？", py: "Nǐ zěnme bù chī le?", vi: "Sao bạn không ăn nữa thế?", words: ["你", "怎么", "不吃了？"] },
+          { cn: "因为今天很忙，所以没去游泳。", py: "Yīnwèi jīntiān hěn máng, suǒyǐ méi qù yóuyǒng.", vi: "Vì hôm nay rất bận nên tôi không đi bơi.", words: ["因为", "今天很忙，", "所以", "没去游泳。"] }
+        ]
+      },
+      {
+        lesson: 7,
+        title: "Bài 7: 你家离公司远吗 · Nhà bạn cách công ty xa không",
+        vocab: [
+          { cn: "离", py: "lí", vi: "Cách (khoảng cách)" },
+          { cn: "公司", py: "gōngsī", vi: "Công ty" },
+          { cn: "远", py: "yuǎn", vi: "Xa" },
+          { cn: "近", py: "jìn", vi: "Gần" },
+          { cn: "公共汽车", py: "gōnggòng qìchē", vi: "Xe buýt" },
+          { cn: "小时", py: "xiǎoshí", vi: "Tiếng đồng hồ" },
+          { cn: "慢", py: "màn", vi: "Chậm" },
+          { cn: "快", py: "kuài", vi: "Nhanh" }
+        ],
+        sentences: [
+          { cn: "你家离公司远吗？", py: "Nǐ jiā lí gōngsī yuǎn ma?", vi: "Nhà bạn cách công ty xa không?", words: ["你家", "离公司", "远吗？"] },
+          { cn: "坐公共汽车要一个小时。", py: "Zuò gōnggòng qìchē yào yí gè xiǎoshí.", vi: "Đi xe buýt mất một tiếng đồng hồ.", words: ["坐公共汽车", "要", "一个小时。"] }
         ]
       }
     ];
 
-    // Gift Box Motivational Quotes (Chinese + Pinyin + Vietnamese)
+    // Warm & Friendly Motivational Quotes (29 Bilingual Items)
     const GIFT_QUOTES = [
-      {
-        cn: "坚持就是胜利！",
-        py: "Jiānchí jiù shì shènglì!",
-        vi: "Kiên trì chính là thắng lợi! Hãy tiếp tục phát huy nhé."
-      },
-      {
-        cn: "每一天都是新的开始。",
-        py: "Měi yì tiān dōu shì xīn de kāishǐ.",
-        vi: "Mỗi ngày đều là một khởi đầu mới. Bạn đang làm rất tốt!"
-      },
-      {
-        cn: "学而不厌，诲人不倦。",
-        py: "Xué ér bú yàn, huì rén bú juàn.",
-        vi: "Học không biết chán, dạy không biết mệt. Chúc bạn một ngày vui vẻ!"
-      },
-      {
-        cn: "熟能生巧，加油！",
-        py: "Shú néng shēng qiǎo, jiāyóu!",
-        vi: "Trăm hay không bằng tay quen. Cố lên bạn nhé!"
-      },
-      {
-        cn: "千里之行，始于足下。",
-        py: "Qiān lǐ zhī xíng, shǐ yú zú xià.",
-        vi: "Hành trình ngàn dặm bắt đầu từ một bước chân. Bạn đã bước thành công!"
-      }
+      { cn: "慢慢来，最快。", py: "Mànmān lái, zuì kuài.", vi: "Cứ thong thả tiến bước, đó lại là cách nhanh nhất." },
+      { cn: "你今天也很棒！", py: "Nǐ jīntiān yě hěn bàng!", vi: "Hôm nay bạn cũng hoàn thành rất tuyệt vời đấy!" },
+      { cn: "坚持就是胜利！", py: "Jiānchí jiù shì shènglì!", vi: "Kiên trì chính là thắng lợi!" },
+      { cn: "每一天都是新的开始。", py: "Měi yì tiān dōu shì xīn de kāishǐ.", vi: "Mỗi ngày đều là một khởi đầu mới tràn đầy niềm vui." },
+      { cn: "熟能生巧，加油！", py: "Shú néng shēng qiǎo, jiāyóu!", vi: "Trăm hay không bằng tay quen, cố lên bạn nhé!" },
+      { cn: "千里之行，始于足下。", py: "Qiān lǐ zhī xíng, shǐ yú zú xià.", vi: "Hành trình ngàn dặm bắt đầu từ một bước chân." },
+      { cn: "相信自己，你可以的！", py: "Xiāngxìn zìjǐ, nǐ kěyǐ de!", vi: "Hãy tin vào bản thân, bạn nhất định làm được!" },
+      { cn: "学而时习之，不亦说乎。", py: "Xué ér shí xí zhī, bù yì yuè hū.", vi: "Học tập và thường xuyên ôn luyện, thật vui vẻ biết bao." },
+      { cn: "越努力，越幸运。", py: "Yuè nǔlì, yuè xìngyùn.", vi: "Càng nỗ lực, bạn sẽ càng gặp nhiều may mắn." },
+      { cn: "今天学习了吗？太棒了！", py: "Jīntiān xuéxí le ma? Tài bàng le!", vi: "Hôm nay bạn đã chăm chỉ học tập rồi, đỉnh quá đi!" },
+      { cn: "保持热爱，奔赴山海。", py: "Bǎochí rè'ài, bēnfù shānhǎi.", vi: "Giữ vững nhiệt huyết để chinh phục những tầm cao mới." },
+      { cn: "一步一个脚印。", py: "Yí bù yí gè jiǎoyìn.", vi: "Từng bước từng bước vững chắc tiến về phía trước." },
+      { cn: "好记性不如烂笔头。", py: "Hǎo jìxìng bùrú làn bǐtóu.", vi: "Trí nhớ tốt không bằng chăm chỉ ghi chép." },
+      { cn: "今天的努力是明天的实力。", py: "Jīntiān de nǔlì shì míngtiān de shílì.", vi: "Nỗ lực hôm nay tạo nên thực lực ngày mai." },
+      { cn: "保持好心情，学习更轻松。", py: "Bǎochí hǎo xīnqíng, xuéxí gèng qīngsōng.", vi: "Giữ tâm trạng thoải mái để việc học nhẹ nhàng hơn." },
+      { cn: "喝杯水，休息一下吧。", py: "Hē bēi shuǐ, xiūxi yíxià ba.", vi: "Uống ngụm nước rồi thư giãn một chút nhé." },
+      { cn: "你比昨天又进步了一点！", py: "Nǐ bǐ zuótiān yòu jìnbù le yìdiǎn!", vi: "Bạn lại tiến bộ hơn hôm qua một chút rồi đấy!" },
+      { cn: "语言是通往世界的钥匙。", py: "Yǔyán shì tōng wǎng shìjiè de yàoshi.", vi: "Ngôn ngữ là chiếc chìa khóa mở ra thế giới." },
+      { cn: "学中文，慢慢感受乐趣。", py: "Xué Zhōngwén, mànmān gǎnshòu lèqù.", vi: "Học tiếng Trung, từng chút cảm nhận niềm vui nhé." },
+      { cn: "每天进步百分之一。", py: "Měitiān jìnbù bǎi fēn zhī yī.", vi: "Mỗi ngày tiến bộ 1% thôi cũng rất đáng tự hào." },
+      { cn: "加油，中文越来越好了！", py: "Jiāyóu, Zhōngwén yuè lái yuè hǎo le!", vi: "Cố lên, tiếng Trung của bạn đang ngày càng giỏi hơn rồi!" },
+      { cn: "今天的任务完成，犒劳一下自己吧。", py: "Jīntiān de rènwu wánchéng, kàoláo yíxià zìjǐ ba.", vi: "Hoàn thành mục tiêu hôm nay rồi, thưởng cho mình nhé!" },
+      { cn: "温故而知新。", py: "Wēn gù ér zhī xīn.", vi: "Ôn lại kiến thức cũ để hiểu thêm nhiều điều mới." },
+      { cn: "有志者事竟成。", py: "Yǒu zhì zhě shì jìng chéng.", vi: "Có chí thì nhất định thành công." },
+      { cn: "种一棵树最好的时间是十年前，其次是现在。", py: "Zhǒng yì kē shù zuì hǎo de shíjiān shì shí nián qián, qícì shì xiànzài.", vi: "Thời điểm tốt nhất để bắt đầu là ngay lúc này!" },
+      { cn: "加油，你是最棒的！", py: "Jiāyóu, nǐ shì zuì bàng de!", vi: "Cố lên, bạn luôn là tuyệt nhất!" },
+      { cn: "享受学习的过程。", py: "Xiǎngshòu xuéxí de guòchéng.", vi: "Hãy tận hưởng trọn vẹn hành trình học tập này." },
+      { cn: "生活晴朗，万物可爱。", py: "Shēnghuó qínglǎng, wànwù kě'ài.", vi: "Chúc bạn một ngày ngập tràn niềm vui và nhẹ nhàng." },
+      { cn: "Ms QA 陪伴你一起进步！", py: "Ms QA péibàn nǐ yìqǐ jìnbù!", vi: "Ms QA luôn đồng hành cùng bạn tiến bộ mỗi ngày!" }
     ];
 
-    // Global Application State
     let appState = {
-      mode: 'vocabulary', // 'vocabulary' | 'arrange' | 'typing'
-      scope: 'all',       // 'all' | 'single'
-      selectedLesson: 1,
+      mode: 'vocabulary',
+      scopeType: 'all', // 'all' | 'range' | 'custom'
+      startLesson: 1,
+      endLesson: 2,
+      customLessons: [1],
       score: 0,
       currentIndex: 0,
       questions: [],
-      currentSavedSession: null
+      currentSavedSession: null,
+      tempRangeStart: 1,
+      tempRangeEnd: 2,
+      tempCustomLessons: [1]
     };
 
-    // -------------------------------------------------------------
-    // INITIALIZATION & LOCALSTORAGE MANAGEMENT
-    // -------------------------------------------------------------
     window.onload = function() {
       checkSavedProgress();
-      renderLessonGrid();
+      renderMultiLessonPickerContent('range');
     };
 
     function checkSavedProgress() {
-      const saved = localStorage.getItem('hsk1_progress_saved');
+      const saved = localStorage.getItem('hsk2_progress_saved');
       if (saved) {
         try {
           appState.currentSavedSession = JSON.parse(saved);
@@ -600,26 +640,30 @@
       if (appState.questions.length === 0) return;
       const progressData = {
         mode: appState.mode,
-        scope: appState.scope,
-        selectedLesson: appState.selectedLesson,
+        scopeType: appState.scopeType,
+        startLesson: appState.startLesson,
+        endLesson: appState.endLesson,
+        customLessons: appState.customLessons,
         score: appState.score,
         currentIndex: appState.currentIndex,
         questions: appState.questions
       };
-      localStorage.setItem('hsk1_progress_saved', JSON.stringify(progressData));
+      localStorage.setItem('hsk2_progress_saved', JSON.stringify(progressData));
       checkSavedProgress();
     }
 
     function clearSavedProgress() {
-      localStorage.removeItem('hsk1_progress_saved');
+      localStorage.removeItem('hsk2_progress_saved');
       document.getElementById('homeResumeCard').classList.add('hidden');
     }
 
     function resumeSavedLesson() {
       if (!appState.currentSavedSession) return;
       appState.mode = appState.currentSavedSession.mode;
-      appState.scope = appState.currentSavedSession.scope;
-      appState.selectedLesson = appState.currentSavedSession.selectedLesson;
+      appState.scopeType = appState.currentSavedSession.scopeType;
+      appState.startLesson = appState.currentSavedSession.startLesson;
+      appState.endLesson = appState.currentSavedSession.endLesson;
+      appState.customLessons = appState.currentSavedSession.customLessons;
       appState.score = appState.currentSavedSession.score;
       appState.currentIndex = appState.currentSavedSession.currentIndex;
       appState.questions = appState.currentSavedSession.questions;
@@ -628,9 +672,6 @@
       renderQuestion();
     }
 
-    // -------------------------------------------------------------
-    // NAVIGATION & VIEW CONTROLLERS
-    // -------------------------------------------------------------
     function showView(viewName) {
       document.getElementById('viewHome').classList.add('hidden');
       document.getElementById('viewExercise').classList.add('hidden');
@@ -653,64 +694,157 @@
       showView('home');
     }
 
-    function startMode(mode) {
+    function setMode(mode) {
       appState.mode = mode;
-      // Visual feedback on selected cards if desired
+      ['Vocab', 'Arrange', 'Typing'].forEach(m => {
+        const card = document.getElementById(`modeCard${m}`);
+        card.className = "glass-card hover:border-teal-500 transition-all p-5 rounded-2xl cursor-pointer border-2 border-transparent";
+      });
+      const activeName = mode === 'vocabulary' ? 'Vocab' : mode === 'arrange' ? 'Arrange' : 'Typing';
+      document.getElementById(`modeCard${activeName}`).className = "glass-card hover:border-teal-500 transition-all p-5 rounded-2xl cursor-pointer border-2 border-teal-500 bg-teal-50/30 shadow-md";
     }
 
-    function selectLessonRange(scope) {
-      appState.scope = scope;
+    function setScope(type) {
+      appState.scopeType = type;
       const btnAll = document.getElementById('btnScopeAll');
-      const btnSelect = document.getElementById('btnScopeSelect');
+      const btnRange = document.getElementById('btnScopeRange');
+      const btnCustom = document.getElementById('btnScopeCustom');
 
-      if (scope === 'all') {
-        btnAll.className = "px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left";
-        btnSelect.className = "px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all";
+      btnAll.className = "px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all";
+      btnRange.className = "px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all";
+      btnCustom.className = "px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all";
+
+      if (type === 'all') {
+        btnAll.className = "px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left shadow-sm";
+      } else if (type === 'range') {
+        btnRange.className = "px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left shadow-sm";
+      } else if (type === 'custom') {
+        btnCustom.className = "px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left shadow-sm";
+      }
+    }
+
+    function openMultiLessonPicker(type) {
+      setScope(type);
+      const modal = document.getElementById('modalMultiLesson');
+      const title = document.getElementById('multiModalTitle');
+      const sub = document.getElementById('multiModalSubtitle');
+
+      if (type === 'range') {
+        title.textContent = "Chọn Khoảng Bài Học · 范围选择";
+        sub.textContent = "Lựa chọn bài bắt đầu và bài kết thúc (VD: Bài 1-2, Bài 1-5)";
       } else {
-        btnSelect.className = "px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-50 text-teal-800 font-medium text-xs flex items-center justify-between text-left";
-        btnAll.className = "px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between text-left transition-all";
+        title.textContent = "Chọn Nhiều Bài Bất Kỳ · 多课自选";
+        sub.textContent = "Tích chọn danh sách các bài bạn muốn ôn tập";
+      }
+
+      renderMultiLessonPickerContent(type);
+      modal.classList.remove('hidden');
+    }
+
+    function closeMultiLessonPicker() {
+      document.getElementById('modalMultiLesson').classList.add('hidden');
+    }
+
+    function renderMultiLessonPickerContent(type) {
+      const container = document.getElementById('multiLessonContent');
+      container.innerHTML = '';
+
+      if (type === 'range') {
+        const wrap = document.createElement('div');
+        wrap.className = "space-y-4 py-2";
+
+        const flex = document.createElement('div');
+        flex.className = "flex items-center justify-center space-x-3";
+
+        const selectStart = document.createElement('select');
+        selectStart.id = "rangeStartSelect";
+        selectStart.className = "p-3 bg-white border border-slate-300 rounded-xl font-bold text-slate-700 text-sm focus:border-teal-500 focus:outline-none shadow-sm";
+
+        const selectEnd = document.createElement('select');
+        selectEnd.id = "rangeEndSelect";
+        selectEnd.className = "p-3 bg-white border border-slate-300 rounded-xl font-bold text-slate-700 text-sm focus:border-teal-500 focus:outline-none shadow-sm";
+
+        LESSON_DATA.forEach(l => {
+          const opt1 = new Option(`Bài ${l.lesson}`, l.lesson);
+          const opt2 = new Option(`Bài ${l.lesson}`, l.lesson);
+          if (l.lesson === appState.startLesson) opt1.selected = true;
+          if (l.lesson === appState.endLesson) opt2.selected = true;
+          selectStart.add(opt1);
+          selectEnd.add(opt2);
+        });
+
+        flex.appendChild(selectStart);
+        const arrow = document.createElement('span');
+        arrow.textContent = "➔";
+        arrow.className = "text-teal-600 font-bold";
+        flex.appendChild(arrow);
+        flex.appendChild(selectEnd);
+
+        wrap.appendChild(flex);
+        container.appendChild(wrap);
+      } else {
+        const grid = document.createElement('div');
+        grid.className = "grid grid-cols-2 gap-2";
+
+        LESSON_DATA.forEach(l => {
+          const label = document.createElement('label');
+          label.className = "flex items-center space-x-2 p-3 bg-slate-50 hover:bg-teal-50 rounded-xl border border-slate-200 cursor-pointer transition-all";
+          
+          const chk = document.createElement('input');
+          chk.type = "checkbox";
+          chk.value = l.lesson;
+          chk.checked = appState.customLessons.includes(l.lesson);
+          chk.className = "w-4 h-4 text-teal-600 rounded focus:ring-teal-500";
+
+          const span = document.createElement('span');
+          span.className = "text-xs font-bold text-slate-700";
+          span.textContent = `Bài ${l.lesson}`;
+
+          label.appendChild(chk);
+          label.appendChild(span);
+          grid.appendChild(label);
+        });
+
+        container.appendChild(grid);
       }
     }
 
-    function openLessonPicker() {
-      selectLessonRange('single');
-      document.getElementById('modalLessonPicker').classList.remove('hidden');
-    }
+    function applyMultiLessonSelection() {
+      if (appState.scopeType === 'range') {
+        const start = parseInt(document.getElementById('rangeStartSelect').value);
+        const end = parseInt(document.getElementById('rangeEndSelect').value);
 
-    function closeLessonPicker() {
-      document.getElementById('modalLessonPicker').classList.add('hidden');
-    }
+        if (start > end) {
+          showCustomNotice("Lỗi chọn bài · 选择错误", "Bài bắt đầu không được lớn hơn bài kết thúc nha bạn.");
+          return;
+        }
 
-    function renderLessonGrid() {
-      const grid = document.getElementById('lessonGrid');
-      grid.innerHTML = '';
-      for (let i = 1; i <= 30; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        btn.className = `py-2 rounded-xl text-xs font-bold transition-all ${
-          appState.selectedLesson === i 
-            ? 'bg-teal-600 text-white shadow-md' 
-            : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-        }`;
-        btn.onclick = () => {
-          appState.selectedLesson = i;
-          document.getElementById('selectedLessonText').textContent = `Đang chọn: Bài ${i}`;
-          renderLessonGrid();
-        };
-        grid.appendChild(btn);
+        appState.startLesson = start;
+        appState.endLesson = end;
+        document.getElementById('rangeScopeText').textContent = `Đã chọn: Bài ${start} - ${end}`;
+      } else if (appState.scopeType === 'custom') {
+        const chks = document.querySelectorAll('#multiLessonContent input[type="checkbox"]:checked');
+        const selected = Array.from(chks).map(c => parseInt(c.value));
+
+        if (selected.length === 0) {
+          showCustomNotice("Lỗi chọn bài · 选择错误", "Vui lòng chọn ít nhất 1 bài học nhé.");
+          return;
+        }
+
+        appState.customLessons = selected;
+        document.getElementById('customScopeText').textContent = `Đã chọn: ${selected.length} bài (${selected.join(', ')})`;
       }
+
+      closeMultiLessonPicker();
     }
 
-    // -------------------------------------------------------------
-    // EXERCISE ENGINE & SESSION GENERATION
-    // -------------------------------------------------------------
     function initSession() {
       appState.currentIndex = 0;
       appState.score = 0;
       appState.questions = generateQuestions();
 
       if (appState.questions.length === 0) {
-        showCustomNotice("Thông báo · 提示", "Bài học này chưa có đủ dữ liệu câu hỏi. Vui lòng chọn bài 1-5.");
+        showCustomNotice("Thông báo · 提示", "Chưa có đủ dữ liệu câu hỏi cho phạm vi này. Vui lòng thử chọn lại nhé.");
         return;
       }
 
@@ -720,12 +854,17 @@
     }
 
     function generateQuestions() {
-      let pool = [];
-      let targetLessons = appState.scope === 'all' 
-        ? LESSON_DATA 
-        : LESSON_DATA.filter(l => l.lesson === appState.selectedLesson);
+      let targetLessons = [];
 
-      if (targetLessons.length === 0) targetLessons = [LESSON_DATA[0]];
+      if (appState.scopeType === 'all') {
+        targetLessons = LESSON_DATA;
+      } else if (appState.scopeType === 'range') {
+        targetLessons = LESSON_DATA.filter(l => l.lesson >= appState.startLesson && l.lesson <= appState.endLesson);
+      } else if (appState.scopeType === 'custom') {
+        targetLessons = LESSON_DATA.filter(l => appState.customLessons.includes(l.lesson));
+      }
+
+      let pool = [];
 
       if (appState.mode === 'vocabulary') {
         targetLessons.forEach(l => {
@@ -737,7 +876,6 @@
         });
       }
 
-      // Shuffle pool
       return pool.sort(() => 0.5 - Math.random()).slice(0, 10);
     }
 
@@ -755,7 +893,6 @@
       const pct = ((appState.currentIndex + 1) / appState.questions.length) * 100;
       document.getElementById('exProgressBar').style.width = `${pct}%`;
 
-      // Hide feedback
       const fb = document.getElementById('feedbackBox');
       fb.classList.add('hidden');
       fb.className = "hidden rounded-2xl p-4 text-center text-sm font-medium transition-all animate-pop-in";
@@ -776,18 +913,15 @@
       }
     }
 
-    // Mode 1: Vocabulary Flashcard Option Selection
     function renderVocabularyCard(q, area) {
-      document.getElementById('exModeTitle').textContent = 'Ôn Từ Vựng · 复习词汇';
+      document.getElementById('exModeTitle').textContent = 'Từ Vựng Flashcard · 词汇卡片';
       document.getElementById('qChinese').textContent = q.cn;
       document.getElementById('qPinyin').textContent = q.py;
       document.getElementById('qVietnamese').textContent = `(${q.vi})`;
 
-      // Create 4 multiple choice options for Vietnamese meaning
       const optionsContainer = document.createElement('div');
       optionsContainer.className = "grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4";
 
-      // Pick distractor options
       let allVi = LESSON_DATA.flatMap(l => l.vocab.map(v => v.vi));
       let choices = [q.vi];
       while (choices.length < 4 && allVi.length > choices.length) {
@@ -798,11 +932,11 @@
 
       choices.forEach(opt => {
         const btn = document.createElement('button');
-        btn.className = "opt-btn p-4 rounded-2xl border-2 border-slate-200 hover:border-teal-500 bg-white font-medium text-sm text-slate-700 transition-all text-left";
+        btn.className = "opt-btn p-4 rounded-2xl border-2 border-slate-200 hover:border-teal-500 bg-white font-medium text-sm text-slate-700 transition-all text-left shadow-sm";
         btn.textContent = opt;
         btn.onclick = () => {
-          document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('border-teal-600', 'bg-teal-50', 'selected'));
-          btn.classList.add('border-teal-600', 'bg-teal-50', 'selected');
+          document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('border-teal-600', 'bg-teal-50'));
+          btn.classList.add('border-teal-600', 'bg-teal-50');
           appState.userChoice = opt;
         };
         optionsContainer.appendChild(btn);
@@ -811,31 +945,28 @@
       area.appendChild(optionsContainer);
     }
 
-    // Mode 2: Sentence Arrange
     function renderArrangeCard(q, area) {
       document.getElementById('exModeTitle').textContent = 'Sắp Xếp Câu · 连词成句';
-      document.getElementById('qChinese').textContent = "🧩 Ghép câu đúng grammar";
+      document.getElementById('qChinese').textContent = "🧩 Ghép câu đúng ngữ pháp";
       document.getElementById('qPinyin').textContent = q.py;
       document.getElementById('qVietnamese').textContent = `(${q.vi})`;
 
       const wrap = document.createElement('div');
       wrap.className = "space-y-4";
 
-      // Selected slots
       const slotArea = document.createElement('div');
       slotArea.id = "arrangeSlots";
       slotArea.className = "min-h-[56px] p-3 rounded-2xl bg-slate-100/80 border-2 border-dashed border-slate-300 flex flex-wrap gap-2 items-center";
 
-      // Word options pool
       const poolArea = document.createElement('div');
       poolArea.id = "arrangePool";
       poolArea.className = "flex flex-wrap gap-2 justify-center pt-2";
 
       let shuffledWords = [...q.words].sort(() => 0.5 - Math.random());
 
-      shuffledWords.forEach((word, idx) => {
+      shuffledWords.forEach(word => {
         const chip = document.createElement('button');
-        chip.className = "chip-btn px-4 py-2 rounded-xl bg-white border border-slate-300 font-bold text-slate-800 hover:border-teal-500 shadow-sm transition-all";
+        chip.className = "chip-btn px-4 py-2 rounded-xl bg-white border border-slate-300 font-bold text-slate-800 hover:border-teal-500 shadow-sm transition-all text-sm";
         chip.textContent = word;
         chip.onclick = () => {
           if (chip.parentNode === poolArea) {
@@ -852,7 +983,6 @@
       area.appendChild(wrap);
     }
 
-    // Mode 3: Typing Practice
     function renderTypingCard(q, area) {
       document.getElementById('exModeTitle').textContent = 'Luyện Gõ Phím · 拼音打字';
       document.getElementById('qChinese').textContent = q.cn;
@@ -865,16 +995,13 @@
       const input = document.createElement('input');
       input.type = "text";
       input.id = "typeInput";
-      input.placeholder = "Gõ lại câu tiếng Trung hoặc Pinyin...";
+      input.placeholder = "Gõ Pinyin hoặc chữ Hán tương ứng...";
       input.className = "w-full p-4 rounded-2xl border-2 border-slate-200 focus:border-teal-500 focus:outline-none text-center font-bold text-lg text-slate-800 shadow-inner";
       
       wrap.appendChild(input);
       area.appendChild(wrap);
     }
 
-    // -------------------------------------------------------------
-    // ANSWER CHECKING & SPEECH SYNTHESIS
-    // -------------------------------------------------------------
     function checkAnswer() {
       const q = appState.questions[appState.currentIndex];
       let isCorrect = false;
@@ -900,15 +1027,14 @@
         appState.score += 10;
         document.getElementById('streakCount').textContent = appState.score;
         fb.className = "rounded-2xl p-4 text-center text-sm font-medium transition-all bg-emerald-100 text-emerald-800 border border-emerald-300 animate-pop-in";
-        fbCn.textContent = "🎉 太棒了！回答正确 · Chính xác rồi!";
+        fbCn.textContent = "🎉 太棒了！回答正确 · Bạn trả lời chuẩn lắm!";
         fbVi.textContent = `Đáp án: ${q.cn} (${q.py}) - ${q.vi}`;
       } else {
         fb.className = "rounded-2xl p-4 text-center text-sm font-medium transition-all bg-rose-100 text-rose-800 border border-rose-300 animate-pop-in";
-        fbCn.textContent = "❌ 再想想看 · Chưa chính xác rồi!";
-        fbVi.textContent = `Đáp án đúng là: ${q.cn} (${q.py}) - ${q.vi}`;
+        fbCn.textContent = "❌ 没关系，再接再厉 · Không sao, thử lại câu sau nhé!";
+        fbVi.textContent = `Đáp án chuẩn: ${q.cn} (${q.py}) - ${q.vi}`;
       }
 
-      // Change button to next
       const btn = document.getElementById('btnCheckAnswer');
       btn.textContent = "Câu Tiếp Theo · 下一题 ➔";
       btn.onclick = nextQuestion;
@@ -944,9 +1070,6 @@
       }
     }
 
-    // -------------------------------------------------------------
-    // MYSTERY GIFT BOXES LOGIC
-    // -------------------------------------------------------------
     function openGiftBox(boxIndex) {
       const boxLid = document.getElementById(`boxLid${boxIndex}`);
       boxLid.classList.add('lid-open');
@@ -955,8 +1078,23 @@
         confetti({ particleCount: 50, spread: 50, origin: { y: 0.7 } });
       }
 
-      // Pick random quote
-      const randomQuote = GIFT_QUOTES[Math.floor(Math.random() * GIFT_QUOTES.length)];
+      // Non-repeating quote tracking with LocalStorage
+      let seenIndices = [];
+      try {
+        seenIndices = JSON.parse(localStorage.getItem('hsk2_seen_quotes') || '[]');
+      } catch (e) { seenIndices = []; }
+
+      if (seenIndices.length >= GIFT_QUOTES.length) {
+        seenIndices = [];
+      }
+
+      let availableIndices = GIFT_QUOTES.map((_, i) => i).filter(i => !seenIndices.includes(i));
+      let selectedIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+
+      seenIndices.push(selectedIndex);
+      localStorage.setItem('hsk2_seen_quotes', JSON.stringify(seenIndices));
+
+      const randomQuote = GIFT_QUOTES[selectedIndex];
 
       setTimeout(() => {
         document.getElementById('giftGrid').classList.add('hidden');
@@ -969,9 +1107,6 @@
       }, 600);
     }
 
-    // -------------------------------------------------------------
-    // CUSTOM MODALS (Replacing Browser Native alert/confirm)
-    // -------------------------------------------------------------
     function pauseLesson() {
       document.getElementById('modalPause').classList.remove('hidden');
     }
