@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -18,6 +18,7 @@
       --primary-dark: #008a00;
       --secondary: #1cb0f6;
       --danger: #ff4b4b;
+      --warning: #ff9600;
       --gray-bg: #f7f7f7;
       --card-border: #e5e5e5;
       --text: #3c3c3c;
@@ -40,11 +41,15 @@
     select, input[type="number"] { padding: 8px 10px; border-radius: 8px; border: 1px solid #ccc; font-weight: bold; outline: none; }
     input[type="number"] { width: 70px; text-align: center; }
 
-    .status-bar { display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 15px; margin-bottom: 15px; }
+    .status-bar { display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 15px; margin-bottom: 10px; }
     .hearts { color: var(--danger); font-size: 18px; }
     
-    .progress-container { width: 100%; background: #e5e5e5; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 20px; }
+    .progress-container { width: 100%; background: #e5e5e5; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 15px; }
     .progress-bar { width: 0%; height: 100%; background: var(--primary); transition: width 0.3s ease; }
+
+    .control-row { display: flex; justify-content: flex-end; margin-bottom: 15px; }
+    .btn-pause { background: #fff3cd; color: #856404; border: 1.5px solid #ffeeba; padding: 6px 12px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; }
+    .btn-pause:hover { background: #ffe8a1; }
 
     .question-card { background: var(--gray-bg); border: 2px solid var(--card-border); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 20px; }
     .type-tag { display: inline-block; background: var(--secondary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-bottom: 10px; }
@@ -129,6 +134,10 @@
       <div class="progress-bar" id="progressBar"></div>
     </div>
 
+    <div class="control-row">
+      <button class="btn-pause" onclick="pauseAndShowSummary()">⏸️ Tạm dừng & Kết thúc phiên</button>
+    </div>
+
     <div id="quizArea">
       <div class="question-card">
         <span class="type-tag" id="typeTag">Loại bài tập</span>
@@ -154,6 +163,8 @@
   let totalInRound = 0;
   let completedInRound = 0;
   let isAnswered = false;
+
+  const STORAGE_KEY = 'review_level2_saved_progress';
 
   function cleanPunctuation(str) {
     if (!str) return '';
@@ -209,7 +220,11 @@
         populateSingleLessons();
         document.getElementById('loading').classList.add('hidden');
         document.getElementById('app').classList.remove('hidden');
-        startRound();
+
+        // Kiểm tra xem có tiến độ cũ không
+        if (!checkAndLoadSavedProgress()) {
+          startRound();
+        }
       })
       .catch(err => {
         document.getElementById('loading').innerHTML = `
@@ -219,6 +234,76 @@
           </div>`;
       });
   };
+
+  function saveCurrentProgress() {
+    const state = {
+      mode: document.getElementById('modeSelect').value,
+      singleLesson: document.getElementById('singleLessonSelect').value,
+      startLesson: document.getElementById('startLesson').value,
+      endLesson: document.getElementById('endLesson').value,
+      activeSection: activeSection,
+      currentQueue: currentQueue,
+      mistakeQueue: mistakeQueue,
+      recordHistory: recordHistory,
+      currentItem: currentItem,
+      hearts: hearts,
+      totalInRound: totalInRound,
+      completedInRound: completedInRound,
+      savedAt: new Date().toLocaleString('vi-VN')
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function clearSavedProgress() {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
+  function checkAndLoadSavedProgress() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return false;
+
+    try {
+      const state = JSON.parse(saved);
+      if (confirm(`📌 Phát hiện bài học dở dang (${state.completedInRound}/${state.totalInRound} câu) lưu lúc ${state.savedAt}.\n\nBạn có muốn tiếp tục bài học cũ không?`)) {
+        activeSection = state.activeSection;
+        document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+          if (idx + 1 === activeSection) btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
+
+        document.getElementById('modeSelect').value = state.mode;
+        document.getElementById('singleLessonSelect').value = state.singleLesson;
+        document.getElementById('startLesson').value = state.startLesson;
+        document.getElementById('endLesson').value = state.endLesson;
+        
+        handleModeChange(false); // Không reset round
+
+        currentQueue = state.currentQueue || [];
+        mistakeQueue = state.mistakeQueue || [];
+        recordHistory = state.recordHistory || [];
+        currentItem = state.currentItem;
+        hearts = state.hearts;
+        totalInRound = state.totalInRound;
+        completedInRound = state.completedInRound;
+
+        document.getElementById('heartCount').innerText = hearts;
+        updateProgress();
+
+        if (currentItem) {
+          renderQuiz();
+        } else {
+          nextQuestion();
+        }
+        return true;
+      } else {
+        clearSavedProgress();
+        return false;
+      }
+    } catch(e) {
+      clearSavedProgress();
+      return false;
+    }
+  }
 
   function populateSingleLessons() {
     const select = document.getElementById('singleLessonSelect');
@@ -230,6 +315,10 @@
   }
 
   function switchSection(sec) {
+    if (currentQueue.length > 0 && completedInRound > 0) {
+      if (!confirm("Chuyển phần học sẽ khởi động lượt mới. Bạn có chắc chắn không?")) return;
+    }
+    clearSavedProgress();
     activeSection = sec;
     document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
       if (idx + 1 === sec) btn.classList.add('active');
@@ -239,12 +328,15 @@
     startRound();
   }
 
-  function handleModeChange() {
+  function handleModeChange(shouldStartRound = true) {
     const mode = document.getElementById('modeSelect').value;
     document.getElementById('singleSelectBox').className = mode === 'single' ? '' : 'hidden';
     document.getElementById('rangeSelectBox').className = mode === 'range' ? '' : 'hidden';
-    resetQuizAreaUI();
-    startRound();
+    if (shouldStartRound) {
+      clearSavedProgress();
+      resetQuizAreaUI();
+      startRound();
+    }
   }
 
   function resetQuizAreaUI() {
@@ -347,11 +439,13 @@
     if (actionBtn) actionBtn.innerText = 'Kiểm tra';
 
     if (currentQueue.length === 0) {
-      showSummaryReport();
+      clearSavedProgress();
+      showSummaryReport(true);
       return;
     }
 
     currentItem = currentQueue.shift();
+    saveCurrentProgress();
     renderQuiz();
   }
 
@@ -504,10 +598,20 @@
     }
 
     isAnswered = true;
+    saveCurrentProgress();
     document.getElementById('actionBtn').innerText = 'Câu tiếp theo ➡️';
   }
 
-  function showSummaryReport() {
+  function pauseAndShowSummary() {
+    if (currentItem && !isAnswered) {
+      // Đưa câu hiện tại về lại đầu hàng đợi để hôm sau làm lại câu này
+      currentQueue.unshift(currentItem);
+    }
+    saveCurrentProgress();
+    showSummaryReport(false);
+  }
+
+  function showSummaryReport(isCompleted = false) {
     const totalQuestions = recordHistory.length;
     const correctCount = recordHistory.filter(r => r.isCorrect).length;
     const wrongList = recordHistory.filter(r => !r.isCorrect);
@@ -515,7 +619,7 @@
 
     let wrongDetailsHtml = '';
     if (wrongList.length > 0) {
-      wrongDetailsHtml = `<div style="margin-top:15px; font-weight:bold; color: var(--danger);">Các câu/từ cần ôn lại:</div>`;
+      wrongDetailsHtml = `<div style="margin-top:15px; font-weight:bold; color: var(--danger);">Các câu chưa đúng trong phiên hôm nay:</div>`;
       wrongList.forEach(w => {
         const titleShow = w.item.questionVi || w.item.vocab || w.item.example_vi;
         wrongDetailsHtml += `
@@ -526,21 +630,21 @@
         `;
       });
     } else {
-      wrongDetailsHtml = `<div style="margin-top:15px; color: var(--primary); font-weight:bold;">🌟 Tuyệt vời! Bạn không làm sai câu nào cả!</div>`;
+      wrongDetailsHtml = `<div style="margin-top:15px; color: var(--primary); font-weight:bold;">🌟 Bạn chưa làm sai câu nào trong phiên này!</div>`;
     }
 
     const sectionName = activeSection === 1 ? 'Ôn Từ Vựng' : (activeSection === 2 ? 'Sắp Xếp Câu (Pinyin)' : 'Luyện Gõ Từ & Câu');
 
     document.getElementById('quizArea').innerHTML = `
       <div style="text-align:center;">
-        <div style="font-size:50px; margin-bottom: 10px;">🏆</div>
-        <h2 style="margin:0 0 10px 0; color: var(--primary);">KẾT QUẢ CỦA BẠN</h2>
-        <div style="color:#666; font-size:14px;">Phần: <b>${sectionName}</b></div>
+        <div style="font-size:50px; margin-bottom: 10px;">${isCompleted ? '🏆' : '⏸️'}</div>
+        <h2 style="margin:0 0 10px 0; color: var(--primary);">${isCompleted ? 'HOÀN THÀNH BÀI HỌC!' : 'ĐÃ TẠM DỪNG PHIÊN HỌC'}</h2>
+        <div style="color:#666; font-size:14px;">Phần: <b>${sectionName}</b> | Tiến độ toàn bài: <b>${completedInRound}/${totalInRound} câu</b></div>
 
         <div class="report-card">
-          <div class="report-stat"><span>Tổng số câu hỏi:</span> <span>${totalQuestions}</span></div>
+          <div class="report-stat"><span>Số câu đã làm phiên này:</span> <span>${totalQuestions}</span></div>
           <div class="report-stat"><span>Số câu làm đúng:</span> <span style="color: var(--primary);">${correctCount}</span></div>
-          <div class="report-stat"><span>Số câu làm sai:</span> <span style="color: var(--danger);">${wrongList.length}</span></div>
+          <div class="report-stat"><span>Số câu chưa đúng:</span> <span style="color: var(--danger);">${wrongList.length}</span></div>
           <div class="report-stat" style="border-bottom:none; font-size: 18px; margin-top: 5px;">
             <span>Tỷ lệ chính xác:</span> 
             <span style="color: ${accuracy >= 80 ? 'var(--primary)' : 'orange'};">${accuracy}%</span>
@@ -549,13 +653,29 @@
         </div>
 
         ${mistakeQueue.length > 0 ? `
-          <button class="btn-main btn-secondary" onclick="retryMistakes()">🔁 Ôn lại ${mistakeQueue.length} câu chưa đúng</button>
+          <button class="btn-main btn-secondary" onclick="retryMistakes()">🔁 Ôn lại ngay ${mistakeQueue.length} câu chưa đúng này</button>
         ` : ''}
         
-        <button class="btn-main" onclick="resetQuizAreaUI(); startRound();">▶️ Tiếp tục ôn luyện bài này</button>
-        <button class="btn-main" style="background: #666; border-color: #444;" onclick="location.reload()">🏁 Kết thúc / Chọn bài khác</button>
+        ${!isCompleted ? `
+          <button class="btn-main" onclick="resumeLesson()">▶️ Tiếp tục bài học dở dang</button>
+        ` : ''}
+
+        <button class="btn-main" style="background: #666; border-color: #444;" onclick="resetProgressAndRestart()">🔄 Xóa tiến độ & Học từ đầu</button>
       </div>
     `;
+  }
+
+  function resumeLesson() {
+    resetQuizAreaUI();
+    nextQuestion();
+  }
+
+  function resetProgressAndRestart() {
+    if (confirm("Bạn có chắc muốn xóa toàn bộ tiến độ đã lưu và học lại từ đầu không?")) {
+      clearSavedProgress();
+      resetQuizAreaUI();
+      startRound();
+    }
   }
 
   function retryMistakes() {
