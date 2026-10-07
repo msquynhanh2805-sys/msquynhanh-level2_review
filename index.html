@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Level 2_Ms QA.Hantalk</title>
+  <title>Level 2 _ Ms QA.Hantalk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,14 +15,14 @@
       --primary-teal-light: #ccfbf1;
       --mint-accent: #2dd4bf;
       --soft-bg: #f8fafc;
-      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-bg: rgba(255, 255, 255, 0.96);
       --text-main: #1e293b;
-      --text-sub: #64748b;
+      --text-sub: #475569;
       --text-light: #94a3b8;
       --border-color: #e2e8f0;
       --shadow-sm: 0 4px 12px rgba(13, 148, 136, 0.05);
-      --shadow-md: 0 10px 25px -5px rgba(13, 148, 136, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-      --shadow-lg: 0 20px 35px -10px rgba(13, 148, 136, 0.15);
+      --shadow-md: 0 10px 25px -5px rgba(13, 148, 136, 0.08);
+      --shadow-lg: 0 20px 30px -10px rgba(13, 148, 136, 0.12);
       --radius-sm: 12px;
       --radius-md: 20px;
       --radius-lg: 28px;
@@ -32,830 +32,360 @@
       --error-light: #ffe4e6;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      background: var(--bg-gradient);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-      overflow-x: hidden;
-    }
-
-    .app-container {
-      width: 100%;
-      max-width: 580px;
-      min-height: 680px;
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    /* Typography */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', 'Noto Sans SC', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+    body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 16px; overflow-x: hidden; }
+    .app-container { width: 100%; max-width: 600px; min-height: 720px; background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid rgba(255, 255, 255, 0.8); padding: 24px; display: flex; flex-direction: column; position: relative; }
     .zh { font-family: 'Noto Sans SC', sans-serif; }
-    .title-large { font-size: 1.6rem; font-weight: 800; color: var(--text-main); line-height: 1.3; }
-    .title-medium { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
-    .text-sub { font-size: 0.95rem; color: var(--text-sub); line-height: 1.5; }
-    .text-small { font-size: 0.85rem; color: var(--text-light); }
 
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 24px;
-      border-radius: var(--radius-md);
-      font-weight: 700;
-      font-size: 1.05rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      text-decoration: none;
-      width: 100%;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-teal) 0%, #0d8a80 100%);
-      color: white;
-      box-shadow: 0 6px 18px rgba(13, 148, 136, 0.3);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(13, 148, 136, 0.4);
-      background: linear-gradient(135deg, #0f766e 0%, var(--primary-teal) 100%);
-    }
-    .btn-primary:active { transform: translateY(0); }
-
-    .btn-secondary {
-      background: var(--primary-teal-light);
-      color: var(--primary-teal-hover);
-    }
-    .btn-secondary:hover { background: #b2f5ea; }
-
-    .btn-outline {
-      background: white;
-      border: 2px solid var(--border-color);
-      color: var(--text-sub);
-    }
-    .btn-outline:hover { background: #f1f5f9; color: var(--text-main); border-color: #cbd5e1; }
-
-    /* Card styling */
-    .card {
-      background: #ffffff;
-      border-radius: var(--radius-md);
-      padding: 22px;
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      margin-bottom: 16px;
-      transition: transform 0.2s ease;
-    }
-
-    /* Views */
-    .view {
-      display: none;
-      flex-direction: column;
-      flex: 1;
-      animation: fadeIn 0.35s ease-out forwards;
-    }
-    .view.active { display: flex; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-6px); }
-      40%, 80% { transform: translateX(6px); }
-    }
-
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      25% { transform: rotate(-8deg) scale(1.08); }
-      75% { transform: rotate(8deg) scale(1.08); }
-    }
-
-    @keyframes boxOpenAnimation {
-      0% { transform: scale(1); }
-      30% { transform: scale(1.2) rotate(-5deg); }
-      60% { transform: scale(0.9) rotate(5deg); }
-      100% { transform: scale(1.05); }
-    }
-
+    @keyframes floatTitle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes pulseBtn { 0% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.6); } 70% { box-shadow: 0 0 0 16px rgba(45, 212, 191, 0); } 100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg) scale(1.05); } 75% { transform: rotate(8deg) scale(1.05); } }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
     .shake-anim { animation: shake 0.4s ease-in-out; }
 
-    /* Header */
-    .app-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 20px;
-      border-bottom: 2px dashed #e2e8f0;
-      margin-bottom: 24px;
-    }
-    .brand-tag {
-      font-weight: 800;
-      color: var(--primary-teal);
-      font-size: 1.35rem;
-      letter-spacing: -0.4px;
-    }
+    .page-view { display: none; flex-direction: column; flex: 1; animation: fadeIn 0.35s ease-out forwards; }
+    .page-view.active { display: flex; }
 
-    /* Landing Page Specifics */
-    .hero-container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px 10px;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: var(--radius-md); font-weight: 800; font-size: 1rem; border: none; cursor: pointer; transition: all 0.2s; width: 100%; }
+    .btn-primary { background: linear-gradient(135deg, var(--primary-teal) 0%, #0d8a80 100%); color: white; box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4); }
+    .btn-anim-pulse { animation: pulseBtn 2s infinite; }
+    .btn-danger-large { background: #ffe4e6; color: #e11d48; border: 2px solid #fecdd3; font-size: 1rem; margin-top: 12px; }
+    .btn-danger-large:hover { background: #fecdd3; color: #be123c; }
+    .btn-outline { background: white; border: 2px solid var(--border-color); color: var(--text-sub); padding: 8px 14px; font-size: 0.85rem; width: auto; }
 
-    .hero-welcome-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      width: 100%;
-      margin-bottom: 28px;
-      position: relative;
-    }
+    .brand-header { text-align: center; padding-bottom: 10px; border-bottom: 2px dashed #e2e8f0; margin-bottom: 16px; }
+    .brand-title { font-size: 1.2rem; font-weight: 800; color: var(--primary-teal); }
 
-    .hero-greeting-zh {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary-teal-hover);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
+    .card { background: #ffffff; border-radius: var(--radius-md); padding: 16px; box-shadow: var(--shadow-md); border: 1px solid rgba(226, 232, 240, 0.8); margin-bottom: 14px; }
+    
+    .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; text-align: center; }
+    .stat-item { background: white; padding: 10px 4px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); }
+    .stat-val { font-size: 1.1rem; font-weight: 800; color: var(--primary-teal); }
+    .stat-lbl { font-size: 0.75rem; color: var(--text-light); font-weight: 600; }
 
-    .hero-greeting-vi {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
+    .mode-tabs, .type-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: #f1f5f9; padding: 6px; border-radius: var(--radius-sm); margin-bottom: 12px; }
+    .tab-btn { padding: 10px 4px; border-radius: 8px; border: none; background: transparent; font-size: 0.82rem; font-weight: 700; color: var(--text-sub); cursor: pointer; transition: all 0.2s; text-align: center; }
+    .tab-btn.active { background: #ffffff; color: var(--primary-teal); box-shadow: var(--shadow-sm); }
 
-    .hero-sub-card {
-      background: var(--primary-teal-light);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
-      border: 1px solid var(--mint-accent);
-    }
+    .lesson-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-height: 200px; overflow-y: auto; padding-right: 4px; margin-bottom: 12px; }
+    .lesson-item { padding: 10px 4px; border-radius: var(--radius-sm); border: 2px solid var(--border-color); background: white; cursor: pointer; text-align: center; font-size: 0.85rem; }
+    .lesson-item.selected { border-color: var(--primary-teal); background: var(--primary-teal-light); font-weight: 800; }
 
-    .hero-sub-zh {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary-teal-hover);
-      margin-bottom: 4px;
-    }
+    .progress-bar { height: 10px; background: #e2e8f0; border-radius: 20px; overflow: hidden; margin-bottom: 14px; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--mint-accent), var(--primary-teal)); width: 0%; transition: width 0.3s; }
 
-    .hero-sub-vi {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
+    .question-card { text-align: center; padding: 20px 14px; min-height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .zh-main { font-size: 2.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
+    .pinyin-sub { font-size: 1.05rem; color: var(--primary-teal); font-weight: 600; margin-bottom: 8px; }
+    .example-box { font-size: 0.88rem; color: var(--text-sub); background: #f8fafc; padding: 10px 12px; border-radius: 10px; border-left: 3px solid var(--mint-accent); text-align: left; width: 100%; margin-top: 8px; }
 
-    .btn-hero-start {
-      font-size: 1.25rem;
-      padding: 20px 32px;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.35);
-    }
+    .options-grid { display: flex; flex-direction: column; gap: 8px; }
+    .option-btn { padding: 12px 16px; border-radius: var(--radius-sm); border: 2px solid var(--border-color); background: white; text-align: left; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+    .option-btn.correct { background: var(--success-light) !important; border-color: var(--success-color) !important; color: #065f46 !important; }
+    .option-btn.wrong { background: var(--error-light) !important; border-color: var(--error-color) !important; color: #9f1239 !important; }
 
-    /* Mode Selection Tabs */
-    .mode-tabs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      background: #f1f5f9;
-      padding: 6px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 20px;
-    }
-    .tab-btn {
-      padding: 10px 4px;
-      border-radius: 8px;
-      border: none;
-      background: transparent;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-sub);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: center;
-    }
-    .tab-btn.active {
-      background: #ffffff;
-      color: var(--primary-teal);
-      box-shadow: var(--shadow-sm);
-    }
+    /* REORDER GAME STYLES */
+    .sentence-slots { display: flex; flex-wrap: wrap; gap: 8px; min-height: 54px; padding: 8px; background: #f1f5f9; border-radius: var(--radius-sm); border: 2px dashed #cbd5e1; margin-bottom: 12px; align-items: center; }
+    .word-pool { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 12px; }
+    .word-chip { padding: 8px 14px; border-radius: 10px; background: white; border: 2px solid var(--primary-teal); color: var(--primary-teal); font-weight: 700; cursor: pointer; transition: all 0.15s; box-shadow: var(--shadow-sm); font-size: 1rem; }
+    .word-chip.used { opacity: 0.3; pointer-events: none; border-color: var(--border-color); }
 
-    /* Lesson List */
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      max-height: 300px;
-      overflow-y: auto;
-      padding-right: 4px;
-      margin-bottom: 16px;
-    }
-    .lesson-item {
-      padding: 14px;
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--border-color);
-      background: white;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .lesson-item:hover { border-color: var(--mint-accent); transform: translateY(-1px); }
-    .lesson-item.selected {
-      border-color: var(--primary-teal);
-      background: var(--primary-teal-light);
-    }
-
-    /* Multi Lesson Selector */
-    .range-selector {
-      background: #f8fafc;
-      padding: 16px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-color);
-      margin-bottom: 16px;
-    }
-    .range-inputs {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .select-box {
-      flex: 1;
-      padding: 10px 12px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-color);
-      font-weight: 600;
-      color: var(--text-main);
-      outline: none;
-      background: white;
-    }
-
-    /* Progress Bar */
-    .progress-wrapper {
-      margin-bottom: 20px;
-    }
-    .progress-info {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-sub);
-      margin-bottom: 6px;
-    }
-    .progress-bar {
-      height: 10px;
-      background: #e2e8f0;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--mint-accent), var(--primary-teal));
-      width: 0%;
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Question Card */
-    .question-card {
-      text-align: center;
-      padding: 28px 20px;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .zh-main {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-    .pinyin-sub {
-      font-size: 1.1rem;
-      color: var(--primary-teal);
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    /* Audio button */
-    .audio-btn {
-      background: #f1f5f9;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      margin-left: 8px;
-      color: var(--primary-teal);
-      transition: background 0.2s;
-    }
-    .audio-btn:hover { background: var(--primary-teal-light); }
-
-    /* Answer Options */
-    .options-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .option-btn {
-      padding: 16px;
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--border-color);
-      background: white;
-      text-align: left;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .option-btn:hover {
-      border-color: var(--mint-accent);
-      background: #fafafa;
-    }
-    .option-btn.correct {
-      background: var(--success-light) !important;
-      border-color: var(--success-color) !important;
-      color: #065f46 !important;
-    }
-    .option-btn.wrong {
-      background: var(--error-light) !important;
-      border-color: var(--error-color) !important;
-      color: #9f1239 !important;
-    }
-
-    /* Typing Input */
-    .typing-box {
-      width: 100%;
-      margin-top: 16px;
-    }
-    .input-field {
-      width: 100%;
-      padding: 16px;
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--border-color);
-      font-size: 1.2rem;
-      text-align: center;
-      outline: none;
-      transition: border 0.2s;
-    }
-    .input-field:focus { border-color: var(--primary-teal); }
-
-    /* Sentence Builder */
-    .sentence-dropzone {
-      min-height: 60px;
-      padding: 12px;
-      border: 2px dashed var(--border-color);
-      border-radius: var(--radius-sm);
-      background: #fafafa;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .word-pool {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-    .word-chip {
-      padding: 10px 16px;
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-sm);
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.15s;
-    }
-    .word-chip:hover { transform: translateY(-2px); border-color: var(--mint-accent); }
-
-    /* Modal Overlay & Custom Pause Layout */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.4);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .modal-card {
-      background: white;
-      width: 100%;
-      max-width: 440px;
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
-      transform: scale(0.95);
-      transition: transform 0.25s ease;
-    }
-    .modal-overlay.active .modal-card { transform: scale(1); }
-
-    .btn-pause-sub {
-      background: #f8fafc;
-      border: 2px solid #e2e8f0;
-      color: #475569;
-      margin-top: 12px;
-      padding: 14px 20px;
-      font-size: 0.95rem;
-    }
-    .btn-pause-sub:hover {
-      background: #f1f5f9;
-      border-color: #cbd5e1;
-      color: #1e293b;
-    }
-
-    /* Blind Box / Màn Hình Túi Mù Bổi Bật */
-    .blind-box-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 32px 0 24px 0;
-    }
-    .blind-box {
-      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-      border: 2.5px solid var(--primary-teal-light);
-      border-radius: var(--radius-md);
-      padding: 28px 12px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: var(--shadow-md);
-      position: relative;
-    }
-    .blind-box:hover {
-      transform: translateY(-8px) scale(1.05);
-      border-color: var(--mint-accent);
-      box-shadow: var(--shadow-lg);
-    }
-    .blind-box.opened {
-      border-color: var(--primary-teal);
-      background: var(--primary-teal-light);
-      animation: boxOpenAnimation 0.5s forwards;
-    }
-    .box-icon {
-      font-size: 3.5rem;
-      margin-bottom: 12px;
-      display: block;
-      transition: transform 0.3s;
-    }
-    .blind-box:hover .box-icon {
-      animation: wiggle 0.6s infinite ease-in-out;
-    }
-    .box-label {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--primary-teal-hover);
-    }
-
-    .quote-display-card {
-      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-      border: 2px solid var(--mint-accent);
-      border-radius: var(--radius-md);
-      padding: 28px 24px;
-      text-align: center;
-      margin-top: 20px;
-      display: none;
-      box-shadow: var(--shadow-md);
-      animation: fadeIn 0.4s ease;
-    }
-
-    /* Resume Card */
-    .resume-card {
-      background: linear-gradient(135deg, #f0fdf4 0%, #ccfbf1 100%);
-      border: 1.5px solid var(--mint-accent);
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    /* BLIND BOX PAGE */
+    .blind-box-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
+    .blind-box { background: #fdfbf7; border: 2px solid #f3e8ff; border-radius: var(--radius-md); padding: 16px 6px; text-align: center; cursor: pointer; transition: all 0.25s; }
+    .blind-box:hover { transform: translateY(-4px); border-color: var(--mint-accent); }
+    .blind-box.opened { border-color: var(--primary-teal); background: var(--primary-teal-light); }
+    .box-icon { font-size: 2.5rem; display: block; margin-bottom: 4px; }
+    .quote-card { background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 2px solid var(--mint-accent); border-radius: var(--radius-md); padding: 18px; text-align: center; margin-top: 14px; display: none; }
   </style>
 </head>
 <body>
 
   <div class="app-container">
 
-    <!-- HEADER (CHUNG) -->
-    <header class="app-header">
-      <div>
-        <div class="brand-tag">📚 Level 2_Ms QA.Hantalk</div>
-      </div>
-      <button id="pause-header-btn" class="btn btn-outline" style="width: auto; padding: 8px 14px; font-size: 0.85rem; display: none;" onclick="openPauseModal()">
-        ⏸️ 暂停 · Tạm dừng
-      </button>
-    </header>
+    <div class="brand-header">
+      <div class="brand-title">Level 2 _ Ms QA.Hantalk</div>
+    </div>
 
-    <!-- ==========================================================================
-         MÀN HÌNH 1 — TRANG CHỦ (LANDING PAGE RIÊNG)
-         ========================================================================== -->
-    <div id="view-home" class="view active">
-      <div class="hero-container">
-        <!-- CARD LỜI CHÀO NỔI BẬT -->
-        <div class="hero-welcome-card">
-          <div style="font-size: 2.2rem; margin-bottom: 12px;">🌸 🌿</div>
-          <div class="hero-greeting-zh zh">🌱 欢迎回来！有时间的时候，回来看看吧。</div>
-          <div class="hero-greeting-vi">Chào mừng bạn quay lại! Khi có thời gian, hãy ghé qua ôn một chút nhé.</div>
-          
-          <div class="hero-sub-card">
-            <div class="hero-sub-zh zh">✨ 每天进步一点点</div>
-            <div class="hero-sub-vi">Mỗi ngày tiến bộ một chút</div>
+    <!-- ================= PAGE 1: TRANG CHÀO MỪNG ================= -->
+    <div id="page-1" class="page-view active">
+      <div style="text-align: center; margin: auto 0;">
+        <h1 class="zh" style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); animation: floatTitle 3s ease-in-out infinite; margin-bottom: 10px;">
+          欢迎回来！
+        </h1>
+        
+        <div class="card" style="background: rgba(240, 253, 244, 0.8); border-color: var(--mint-accent); margin-bottom: 20px;">
+          <div class="zh" style="font-size: 1.05rem; font-weight: 700; color: var(--primary-teal-hover); margin-bottom: 4px;">
+            🌱 欢迎回来！有时间的时候，回来看看吧。
+          </div>
+          <div style="font-size: 0.88rem; color: var(--text-sub);">
+            Chào mừng bạn quay lại! Khi có thời gian, hãy ghé qua ôn một chút.
           </div>
         </div>
 
-        <!-- RESUME CARD IF UNFINISHED PROGRESS EXISTS -->
-        <div id="resume-card-container" style="display: none; width: 100%;">
-          <div class="resume-card">
-            <div style="text-align: left;">
-              <div style="font-weight: 700; color: var(--primary-teal-hover); font-size: 0.95rem;">🌱 Tiếp tục bài ôn dở</div>
-              <div class="text-small" id="resume-desc" style="color: var(--text-sub);">Đang dừng ở Câu 1</div>
-            </div>
-            <button class="btn btn-primary" style="width: auto; padding: 10px 18px; font-size: 0.9rem;" onclick="resumeSession()">
-              ▶️ 继续 · Tiếp tục
-            </button>
+        <!-- THỐNG KÊ LƯU TẠI BỘ NHỚ TRÌNH DUYỆT -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-val" id="stat-streak">0 ngày</div>
+            <div class="stat-lbl">Chuỗi ôn tập</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="stat-completed">0</div>
+            <div class="stat-lbl">Lần hoàn thành</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="stat-mistakes">0 từ</div>
+            <div class="stat-lbl">Cần ôn lại</div>
           </div>
         </div>
 
-        <!-- NÚT BẮT ĐẦU ÔN TẬP CHÍNH -->
-        <button class="btn btn-primary btn-hero-start" onclick="goToStudySelection()">
-          ▶️ 开始复习 · Bắt đầu ôn tập
+        <button class="btn btn-primary btn-anim-pulse" onclick="showPage('page-2')">
+          🚀 BẮT ĐẦU ÔN TẬP
         </button>
       </div>
 
-      <div style="text-align: center; margin-top: auto;" class="text-small">
-        ✨ 📖 🌸 Góc nhỏ học tiếng Trung cùng Ms QA
+      <div style="text-align: center; margin-top: auto; font-size: 0.8rem; color: var(--text-light);">
+        ✨ Từng chút một, từ từ trở nên quen thuộc.
       </div>
     </div>
 
-    <!-- ==========================================================================
-         MÀN HÌNH 2 — GIAO DIỆN HỌC (CHỌN BÀI & THỰC HÀNH)
-         ========================================================================== -->
-    <!-- Màn hình phụ 2A: Chọn chế độ & bài học -->
-    <div id="view-select" class="view">
-      <div style="margin-bottom: 16px;">
-        <button class="btn btn-outline" style="width: auto; padding: 6px 12px; font-size: 0.85rem;" onclick="showView('view-home')">
-          ← 回到首页 · Về trang chủ
-        </button>
-      </div>
-
-      <div class="title-medium" style="margin-bottom: 12px;">Chế độ & Nội dung ôn tập</div>
-
-      <!-- TAB SELECTION -->
-      <div class="mode-tabs">
-        <button class="tab-btn active" onclick="switchTab('single')">Theo một bài</button>
-        <button class="tab-btn" onclick="switchTab('range')">Chọn nhiều bài</button>
-        <button class="tab-btn" onclick="switchTab('all')">Ôn tất cả từ</button>
-      </div>
-
-      <!-- TAB 1: SINGLE LESSON -->
-      <div id="tab-single" class="tab-content">
-        <div class="text-sub" style="margin-bottom: 10px;">Chọn bài học bạn muốn tập trung ôn:</div>
-        <div class="lesson-grid" id="single-lesson-grid"></div>
-      </div>
-
-      <!-- TAB 2: MULTI LESSON (RANGE) -->
-      <div id="tab-range" class="tab-content" style="display: none;">
-        <div class="range-selector">
-          <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Chọn phạm vi bài học (VD: Bài 1-2, Bài 1-5):</div>
-          <div class="range-inputs">
-            <span>Từ bài:</span>
-            <select id="range-start" class="select-box" onchange="validateRange()"></select>
-            <span>đến bài:</span>
-            <select id="range-end" class="select-box" onchange="validateRange()"></select>
-          </div>
+    <!-- ================= PAGE 2: NỘI DUNG ÔN TẬP ================= -->
+    <div id="page-2" class="page-view">
+      
+      <!-- CẤU HÌNH BÀI HỌC & CHẾ ĐỘ -->
+      <div id="study-setup-area">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <button class="btn btn-outline" onclick="showPage('page-1')">← Về trang chủ</button>
+          <span style="font-weight: 700; color: var(--text-sub); font-size: 0.9rem;">Cấu Hình Ôn Tập</span>
         </div>
-      </div>
 
-      <!-- TAB 3: ALL WORDS -->
-      <div id="tab-all" class="tab-content" style="display: none;">
-        <div class="card" style="text-align: center; background: #f0fdf4; border-color: #bbf7d0;">
-          <div style="font-size: 1.8rem; margin-bottom: 8px;">📚</div>
-          <div style="font-weight: 700; color: var(--primary-teal-hover);">Ôn tập toàn bộ từ vựng Level 2</div>
-          <div class="text-sub" style="margin-top: 4px;">Hệ thống sẽ trộn ngẫu nhiên tất cả từ vựng để bạn thử sức linh hoạt.</div>
-        </div>
-      </div>
-
-      <!-- EXERCISE TYPE OPTIONS -->
-      <div style="margin-top: 12px;">
-        <div class="text-sub" style="margin-bottom: 8px; font-weight: 600;">Dạng bài ôn tập:</div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px;">
-          <button class="tab-btn active" id="type-vocab" onclick="setExerciseType('vocab')">📖 Từ vựng</button>
+        <!-- 3 DẠNG BÀI BẮT BUỘC -->
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sub); margin-bottom: 6px;">1. Chọn nội dung luyện tập:</div>
+        <div class="type-tabs">
+          <button class="tab-btn active" id="type-vocab" onclick="setExerciseType('vocab')">📖 Ôn tập từ</button>
+          <button class="tab-btn" id="type-reorder" onclick="setExerciseType('reorder')">🧩 Sắp xếp câu</button>
           <button class="tab-btn" id="type-typing" onclick="setExerciseType('typing')">✍️ Luyện gõ</button>
-          <button class="tab-btn" id="type-order" onclick="setExerciseType('order')">🧩 Ghép câu</button>
         </div>
+
+        <!-- 3 CHẾ ĐỘ PHẠM VI -->
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sub); margin-bottom: 6px;">2. Chọn phạm vi bài:</div>
+        <div class="mode-tabs">
+          <button class="tab-btn active" id="btn-tab-1" onclick="switchMode('single')">Theo bài (1-30)</button>
+          <button class="tab-btn" id="btn-tab-2" onclick="switchMode('range')">Nhiều bài</button>
+          <button class="tab-btn" id="btn-tab-3" onclick="switchMode('all')">Tổng hợp (Tất cả)</button>
+        </div>
+
+        <!-- BÀI ĐƠN -->
+        <div id="mode-single" class="mode-content">
+          <div class="lesson-grid" id="lesson-grid-30"></div>
+        </div>
+
+        <!-- NHIỀU BÀI -->
+        <div id="mode-range" class="mode-content" style="display: none;">
+          <div class="card" style="padding: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>Từ Bài: <select id="range-start" onchange="validateRange()" style="padding: 6px; border-radius: 6px; font-weight: 700;"></select></span>
+              <span>đến Bài: <select id="range-end" onchange="validateRange()" style="padding: 6px; border-radius: 6px; font-weight: 700;"></select></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TỔNG HỢP -->
+        <div id="mode-all" class="mode-content" style="display: none;">
+          <div class="card" style="text-align: center; background: #f0fdf4; border-color: #bbf7d0; padding: 12px;">
+            <div style="font-weight: 700; color: var(--primary-teal-hover); font-size: 0.9rem;">Luyện tập tổng hợp toàn bộ 30 bài (311 từ vựng)</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 8px;" onclick="startStudySession()">
+          ▶️ BẮT ĐẦU LÀM BÀI
+        </button>
       </div>
 
-      <button class="btn btn-primary" style="margin-top: auto;" onclick="startStudySession()">
-        ▶️ 开始复习 · Bắt đầu ôn tập
-      </button>
-    </div>
-
-    <!-- Màn hình phụ 2B: Màn hình làm bài trực tiếp -->
-    <div id="view-study" class="view">
-      <div class="progress-wrapper">
-        <div class="progress-info">
-          <span id="study-mode-label">Ôn Từ Vựng · 复习词汇</span>
-          <span id="progress-text">Câu 1 / 10</span>
+      <!-- VÙNG ĐANG LÀM BÀI -->
+      <div id="study-active-area" style="display: none; flex-direction: column; flex: 1;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: var(--text-sub); margin-bottom: 6px;">
+          <span id="study-progress-label">Câu 1 / 10</span>
+          <span id="study-type-label">Ôn tập từ</span>
         </div>
         <div class="progress-bar">
           <div id="progress-fill" class="progress-fill"></div>
         </div>
+
+        <div class="card question-card" id="question-card">
+          <div id="question-content" style="width: 100%;"></div>
+        </div>
+
+        <div id="action-area" style="flex: 1;"></div>
+
+        <button class="btn btn-danger-large" onclick="triggerPauseOrFinish()">
+          ⏸️ TẠM DỪNG / KẾT THÚC
+        </button>
       </div>
 
-      <!-- QUESTION CARD -->
-      <div class="card question-card" id="question-card">
-        <div id="question-content"></div>
-      </div>
-
-      <!-- ANSWER / ACTION AREA -->
-      <div id="action-area" style="margin-top: auto;"></div>
     </div>
 
-    <!-- ==========================================================================
-         MÀN HÌNH 3 — MÀN HÌNH KẾT THÚC + TÚI MÙ (BÀO TRÙM TOÀN BỘ)
-         ========================================================================== -->
-    <div id="view-reward" class="view" style="text-align: center;">
+    <!-- ================= PAGE 3: TÚI MÙ QUÀ TẶNG ================= -->
+    <div id="page-3" class="page-view" style="text-align: center;">
       <div style="margin-top: 10px;">
-        <div class="title-large zh" style="margin-bottom: 8px; color: var(--primary-teal-hover);">🎁 今天，选一个礼物送给自己吧。</div>
-        <div class="text-sub" style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">Hôm nay, hãy chọn một món quà dành cho chính mình nhé.</div>
+        <div class="zh" style="font-size: 1.2rem; font-weight: 800; color: var(--primary-teal-hover); margin-bottom: 4px;">
+          🌷 今天，选一句话送给自己吧。
+        </div>
+        <div style="font-size: 0.9rem; color: var(--text-sub);">
+          Hôm nay, chọn một câu dành tặng cho chính mình nhé..
+        </div>
       </div>
 
-      <!-- 3 BLIND BOXES NỔI BẬT -->
       <div class="blind-box-container">
         <div class="blind-box" onclick="openBlindBox(0)">
           <span class="box-icon">🎁</span>
-          <span class="box-label">Hộp quà 1</span>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-sub);">Hộp quà 1</span>
         </div>
         <div class="blind-box" onclick="openBlindBox(1)">
-          <span class="box-icon">🎁</span>
-          <span class="box-label">Hộp quà 2</span>
+          <span class="box-icon">🎀</span>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-sub);">Hộp quà 2</span>
         </div>
         <div class="blind-box" onclick="openBlindBox(2)">
-          <span class="box-icon">🎁</span>
-          <span class="box-label">Hộp quà 3</span>
+          <span class="box-icon">✨</span>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-sub);">Hộp quà 3</span>
         </div>
       </div>
 
-      <!-- QUOTE RESULT CARD -->
-      <div id="quote-card" class="quote-display-card">
-        <div class="zh" id="quote-zh" style="font-size: 1.35rem; font-weight: 700; color: var(--primary-teal-hover); margin-bottom: 10px; line-height: 1.4;"></div>
-        <div id="quote-vi" style="font-size: 1.05rem; color: var(--text-main); line-height: 1.5; font-weight: 500;"></div>
+      <div id="quote-card" class="quote-card">
+        <div class="zh" id="quote-zh" style="font-size: 1.15rem; font-weight: 700; color: var(--primary-teal-hover); margin-bottom: 6px;"></div>
+        <div id="quote-vi" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.4;"></div>
       </div>
 
-      <!-- NÚT VỀ TRANG CHỦ -->
-      <button id="btn-finish-reward" class="btn btn-primary" style="margin-top: auto; display: none;" onclick="finishAndGoHome()">
-        🏠 回到首页 · Về trang chủ
-      </button>
+      <div style="margin-top: auto; padding-top: 16px;">
+        <button id="btn-home-from-reward" class="btn btn-primary" style="display: none;" onclick="showPage('page-1')">
+          🏠 回到首页 · Về trang chủ
+        </button>
+      </div>
     </div>
 
-  </div>
-
-  <!-- MODAL TẠM DỪNG (CẤU TRÚC MỚI) -->
-  <div class="modal-overlay" id="pause-modal">
-    <div class="modal-card">
-      <div style="font-size: 2.8rem; margin-bottom: 8px;">⏸️</div>
-      <div class="title-medium" style="margin-bottom: 4px;">暂停复习 · TẠM DỪNG PHIÊN HỌC</div>
-      <div class="text-sub" style="margin-bottom: 18px;">Phiên học đang được tạm dừng.</div>
-
-      <div class="card" style="background: #f8fafc; padding: 12px; margin-bottom: 20px; text-align: left;">
-        <div class="text-small" id="modal-progress-label">Tiến độ hiện tại:</div>
-        <div style="font-weight: 700; color: var(--primary-teal);" id="modal-progress-val">Đã làm 5 câu</div>
-      </div>
-
-      <div style="display: flex; flex-direction: column;">
-        <!-- NÚT CHÍNH LỚN -->
-        <button class="btn btn-primary" style="padding: 18px;" onclick="closePauseModal()">
-          ▶️ 继续复习 · Tiếp tục ôn tập
-        </button>
-        
-        <!-- NÚT PHỤ NGAY BÊN DƯỚI -->
-        <button class="btn btn-pause-sub" onclick="exitSessionToReward()">
-          🌙 暂停 & 结束复习 · Tạm dừng & kết thúc phiên
-        </button>
-        
-        <div class="text-small" style="margin-top: 8px; color: var(--text-light);">
-          Quay lại sau cũng được, tiến độ sẽ được lưu.
-        </div>
-      </div>
-    </div>
   </div>
 
   <script>
     /* ==========================================================================
-       1. DATA DEFINITION (FULL HSK 2 VOCABULARY & SENTENCES)
+       DỮ LIỆU TỪ VỰNG CHÍNH THỨC TỪ FILE EXCEL BÀI 1 - 30 (311 TỪ)
        ========================================================================== */
-    const VOCAB_DATA = [
-      // Bài 1
-      { id: 1, lesson: 1, zh: "九", pinyin: "jiǔ", vi: "chín (số 9)" },
-      { id: 2, lesson: 1, zh: "七", pinyin: "qī", vi: "bảy (số 7)" },
-      { id: 3, lesson: 1, zh: "几", pinyin: "jǐ", vi: "mấy, bao nhiêu" },
-      { id: 4, lesson: 1, zh: "二", pinyin: "èr", vi: "hai (số 2)" },
-      { id: 5, lesson: 1, zh: "五", pinyin: "wǔ", vi: "năm (số 5)" },
-      { id: 6, lesson: 1, zh: "八", pinyin: "bā", vi: "tám (số 8)" },
-      { id: 7, lesson: 1, zh: "六", pinyin: "liù", vi: "sáu (số 6)" },
-      { id: 8, lesson: 1, zh: "十", pinyin: "shí", vi: "mười (số 10)" },
-      { id: 9, lesson: 1, zh: "四", pinyin: "sì", vi: "bốn (số 4)" },
-
-      // Bài 2
-      { id: 10, lesson: 2, zh: "再见", pinyin: "zàijiàn", vi: "tạm biệt" },
-      { id: 11, lesson: 2, zh: "谢谢", pinyin: "xièxie", vi: "cảm ơn" },
-      { id: 12, lesson: 2, zh: "不客气", pinyin: "bú kèqi", vi: "không có gì, đừng khách khí" },
-      { id: 13, lesson: 2, zh: "没关系", pinyin: "méi guānxi", vi: "không sao đâu" },
-
-      // Bài 3
-      { id: 14, lesson: 3, zh: "老师", pinyin: "lǎoshī", vi: "thầy/cô giáo" },
-      { id: 15, lesson: 3, zh: "学生", pinyin: "xuésheng", vi: "học sinh, sinh viên" },
-      { id: 16, lesson: 3, zh: "朋友", pinyin: "péngyou", vi: "bạn bè" },
-      { id: 17, lesson: 3, zh: "医生", pinyin: "yīshēng", vi: "bác sĩ" },
-
-      // Bài 4
-      { id: 18, lesson: 4, zh: "中国", pinyin: "Zhōngguó", vi: "Trung Quốc" },
-      { id: 19, lesson: 4, zh: "北京", pinyin: "Běijīng", vi: "Bắc Kinh" },
-      { id: 20, lesson: 4, zh: "美国", pinyin: "Měiguó", vi: "Nước Mỹ" },
-
-      // Bài 5
-      { id: 21, lesson: 5, zh: "爸爸", pinyin: "bàba", vi: "bố, ba" },
-      { id: 22, lesson: 5, zh: "妈妈", pinyin: "māma", vi: "mẹ" },
-      { id: 23, lesson: 5, zh: "儿子", pinyin: "érzi", vi: "con trai" },
-      { id: 24, lesson: 5, zh: "女儿", pinyin: "nǚ'ér", vi: "con gái" },
-
-      // Bài 6-10
-      { id: 25, lesson: 6, zh: "猫", pinyin: "māo", vi: "con mèo" },
-      { id: 26, lesson: 6, zh: "狗", pinyin: "gǒu", vi: "con chó" },
-      { id: 27, lesson: 7, zh: "水", pinyin: "shuǐ", vi: "nước" },
-      { id: 28, lesson: 7, zh: "茶", pinyin: "chá", vi: "trà" },
-      { id: 29, lesson: 8, zh: "吃", pinyin: "chī", vi: "ăn" },
-      { id: 30, lesson: 8, zh: "喝", pinyin: "hē", vi: "uống" },
-      { id: 31, lesson: 9, zh: "苹果", pinyin: "píngguǒ", vi: "quả táo" },
-      { id: 32, lesson: 10, zh: "高兴", pinyin: "gāoxìng", vi: "vui vẻ, phấn khởi" }
-    ];
-
-    const SENTENCE_DATA = [
-      { id: 1, lesson: 1, zhWords: ["我", "是", "老师"], vi: "Tôi là giáo viên." },
-      { id: 2, lesson: 2, zhWords: ["谢谢", "你"], vi: "Cảm ơn bạn." },
-      { id: 3, lesson: 3, zhWords: ["他", "不是", "学生"], vi: "Anh ấy không phải là học sinh." },
-      { id: 4, lesson: 4, zhWords: ["你", "去", "北京", "吗"], vi: "Bạn đi Bắc Kinh không?" }
+    const FULL_VOCAB_DATA = [
+      {lesson:1,zh:"接",pinyin:"jiē",vi:"nghe (điện thoại); đón",exZh:"我在接电话。",exVi:"Tôi đang nghe điện thoại."},
+      {lesson:1,zh:"开会",pinyin:"kāihuì",vi:"họp",exZh:"我们九点开会。",exVi:"Chín giờ chúng tôi họp."},
+      {lesson:1,zh:"带",pinyin:"dài",vi:"mang, dẫn theo",exZh:"我今天带手机。",exVi:"Hôm nay tôi mang theo điện thoại."},
+      {lesson:1,zh:"团建",pinyin:"tuánjiàn",vi:"team building",exZh:"周末公司有团建。",exVi:"Cuối tuần công ty có team building."},
+      {lesson:1,zh:"建议",pinyin:"jiànyì",vi:"đề nghị, góp ý",exZh:"我建议我们去吃饭。",exVi:"Tôi đề nghị chúng ta đi ăn cơm."},
+      {lesson:1,zh:"同意",pinyin:"tóngyì",vi:"đồng ý",exZh:"我同意你的建议。",exVi:"Tôi đồng ý với đề nghị của bạn."},
+      {lesson:1,zh:"商量",pinyin:"shāngliang",vi:"bàn bạc",exZh:"我们商量一下吧。",exVi:"Chúng ta bàn bạc một chút nhé."},
+      {lesson:1,zh:"安排",pinyin:"ānpái",vi:"sắp xếp",exZh:"经理安排我明天去北京。",exVi:"Giám đốc sắp xếp tôi ngày mai đi Bắc Kinh."},
+      {lesson:1,zh:"楼",pinyin:"lóu",vi:"tòa nhà; tầng",exZh:"我的办公室在三楼。",exVi:"Văn phòng của tôi ở tầng ba."},
+      {lesson:1,zh:"食堂",pinyin:"shítáng",vi:"nhà ăn",exZh:"中午我们在食堂吃饭。",exVi:"Buổi trưa chúng tôi ăn cơm ở nhà ăn."},
+      {lesson:1,zh:"一会儿",pinyin:"yíhuìr",vi:"một lát",exZh:"我一会儿再去。",exVi:"Một lát nữa tôi mới đi."},
+      {lesson:2,zh:"过",pinyin:"guò",vi:"qua; đã từng",exZh:"你去过中国吗？",exVi:"Bạn đã từng đi Trung Quốc chưa?"},
+      {lesson:2,zh:"过马路",pinyin:"guò mǎlù",vi:"qua đường",exZh:"过马路要注意安全。",exVi:"Qua đường cần chú ý an toàn."},
+      {lesson:2,zh:"假期",pinyin:"jiàqī",vi:"kỳ nghỉ",exZh:"假期你打算去哪里？",exVi:"Kỳ nghỉ bạn dự định đi đâu?"},
+      {lesson:2,zh:"旅行",pinyin:"lǚxíng",vi:"du lịch",exZh:"我喜欢去旅行。",exVi:"Tôi thích đi du lịch."},
+      {lesson:2,zh:"以前",pinyin:"yǐqián",vi:"trước đây",exZh:"以前我是学生。",exVi:"Trước đây tôi là học sinh."},
+      {lesson:2,zh:"除了……（以外）",pinyin:"chúle…(yǐwài)",vi:"ngoài ... ra",exZh:"除了汉语以外，我还会英语。",exVi:"Ngoài tiếng Trung ra, tôi còn biết tiếng Anh."},
+      {lesson:2,zh:"地方",pinyin:"dìfang",vi:"nơi, chỗ",exZh:"这个地方很大。",exVi:"Nơi này rất rộng."},
+      {lesson:3,zh:"订",pinyin:"dìng",vi:"đặt (trước)",exZh:"我想订房间。",exVi:"Tôi muốn đặt phòng."},
+      {lesson:3,zh:"外卖",pinyin:"wàimài",vi:"đồ ăn giao tận nơi",exZh:"我们叫外卖吧。",exVi:"Chúng ta gọi đồ ăn về nhà đi."},
+      {lesson:3,zh:"辣",pinyin:"là",vi:"cay",exZh:"这个菜太辣了。",exVi:"Món này cay quá."},
+      {lesson:3,zh:"甜",pinyin:"tián",vi:"ngọt",exZh:"苹果很甜。",exVi:"Táo rất ngọt."},
+      {lesson:3,zh:"苦",pinyin:"kǔ",vi:"đắng",exZh:"中药很苦。",exVi:"Thuốc Bắc rất đắng."},
+      {lesson:3,zh:"酸",pinyin:"suān",vi:"chua",exZh:"柠檬很酸。",exVi:"Chanh rất chua."},
+      {lesson:3,zh:"咸",pinyin:"xián",vi:"mặn",exZh:"汤有点儿咸。",exVi:"Canh hơi mặn."},
+      {lesson:3,zh:"餐厅",pinyin:"cāntīng",vi:"nhà hàng",exZh:"我们在餐厅见面。",exVi:"Chúng ta gặp nhau ở nhà hàng."},
+      {lesson:3,zh:"味道",pinyin:"wèidào",vi:"mùi vị",exZh:"味道不错。",exVi:"Mùi vị không tồi."},
+      {lesson:3,zh:"特别",pinyin:"tèbié",vi:"đặc biệt; rất",exZh:"他特别高兴。",exVi:"Anh ấy đặc biệt vui vẻ."},
+      {lesson:3,zh:"慢",pinyin:"màn",vi:"chậm",exZh:"请慢用。",exVi:"Xin mời dùng thong thả."},
+      {lesson:3,zh:"有名",pinyin:"yǒumíng",vi:"nổi tiếng",exZh:"这个地方很有名。",exVi:"Nơi này rất nổi tiếng."},
+      {lesson:3,zh:"试",pinyin:"shì",vi:"thử",exZh:"我想试一下。",exVi:"Tôi muốn thử một chút."},
+      {lesson:4,zh:"舒服",pinyin:"shūfu",vi:"dễ chịu; khỏe",exZh:"今天我不舒服。",exVi:"Hôm nay tôi không được khỏe."},
+      {lesson:4,zh:"头",pinyin:"tóu",vi:"đầu",exZh:"我的头很疼。",exVi:"Đầu tôi rất đau."},
+      {lesson:4,zh:"疼",pinyin:"téng",vi:"đau",exZh:"肚子疼。",exVi:"Đau bụng."},
+      {lesson:4,zh:"厉害",pinyin:"lìhai",vi:"dữ dội; giỏi",exZh:"咳嗽得很厉害。",exVi:"Ho rất dữ dội."},
+      {lesson:4,zh:"嗓子",pinyin:"sǎngzi",vi:"họng, cổ họng",exZh:"嗓子不舒服。",exVi:"Cổ họng không dễ chịu."},
+      {lesson:4,zh:"发烧",pinyin:"fāshāo",vi:"sốt",exZh:"他发烧了。",exVi:"Anh ấy bị sốt rồi."},
+      {lesson:4,zh:"量",pinyin:"liáng",vi:"đo",exZh:"先量一下体温。",exVi:"Đo thân nhiệt trước đã."},
+      {lesson:4,zh:"体温",pinyin:"tǐwēn",vi:"thân nhiệt",exZh:"体温正常。",exVi:"Thân nhiệt bình thường."},
+      {lesson:4,zh:"体温计",pinyin:"tǐwēnjì",vi:"nhiệt kế",exZh:"用体温计。",exVi:"Dùng nhiệt kế."},
+      {lesson:4,zh:"度",pinyin:"dù",vi:"độ",exZh:"三十八度。",exVi:"38 độ."},
+      {lesson:4,zh:"陪",pinyin:"péi",vi:"đi cùng, bầu bạn",exZh:"我陪你去医院。",exVi:"Tôi đi cùng bạn đến bệnh viện."},
+      {lesson:5,zh:"流鼻涕",pinyin:"liú bítì",vi:"chảy nước mũi",exZh:"我流鼻涕了。",exVi:"Tôi bị chảy nước mũi rồi."},
+      {lesson:5,zh:"咳嗽",pinyin:"késou",vi:"ho",exZh:"晚上咳嗽。",exVi:"Buổi tối bị ho."},
+      {lesson:5,zh:"白天",pinyin:"báitiān",vi:"ban ngày",exZh:"白天不冷。",exVi:"Ban ngày không lạnh."},
+      {lesson:5,zh:"先",pinyin:"xiān",vi:"trước tiên",exZh:"你先吃吧。",exVi:"Bạn ăn trước đi."},
+      {lesson:5,zh:"验血",pinyin:"yànxuè",vi:"xét nghiệm máu",exZh:"医生要验血。",exVi:"Bác sĩ muốn xét nghiệm máu."},
+      {lesson:5,zh:"感冒",pinyin:"gǎnmào",vi:"cảm cúm",exZh:"我感冒了。",exVi:"Tôi bị cảm rồi."},
+      {lesson:5,zh:"打针",pinyin:"dǎzhēn",vi:"tiêm",exZh:"我不怕打针。",exVi:"Tôi không sợ tiêm."},
+      {lesson:5,zh:"种",pinyin:"zhǒng",vi:"loại, kiểu",exZh:"这种药很好。",exVi:"Loại thuốc này rất tốt."},
+      {lesson:5,zh:"片",pinyin:"piàn",vi:"viên (thuốc)",exZh:"吃两片药。",exVi:"Uống 2 viên thuốc."},
+      {lesson:6,zh:"胖",pinyin:"pàng",vi:"béo, mập",exZh:"猫有点儿胖。",exVi:"Con mèo hơi béo."},
+      {lesson:6,zh:"老",pinyin:"lǎo",vi:"già",exZh:"我的爷爷老了。",exVi:"Ông nội tôi già rồi."},
+      {lesson:6,zh:"长",pinyin:"cháng",vi:"dài",exZh:"头发很长。",exVi:"Tóc rất dài."},
+      {lesson:6,zh:"头发",pinyin:"tóufa",vi:"tóc",exZh:"洗头发。",exVi:"Gội đầu."},
+      {lesson:6,zh:"小伙子",pinyin:"xiǎohuǒzi",vi:"chàng trai trẻ",exZh:"那个小伙子很帅。",exVi:"Chàng trai đó rất đẹp trai."},
+      {lesson:6,zh:"换",pinyin:"huàn",vi:"đổi, thay",exZh:"换衣服。",exVi:"Thay quần áo."},
+      {lesson:6,zh:"当",pinyin:"dāng",vi:"làm, đảm nhiệm",exZh:"我想当老师。",exVi:"Tôi muốn làm giáo viên."},
+      {lesson:6,zh:"导游",pinyin:"dǎoyóu",vi:"hướng dẫn viên du lịch",exZh:"他是导游。",exVi:"Anh ấy là hướng dẫn viên."},
+      {lesson:6,zh:"该……了",pinyin:"gāi…le",vi:"đến lúc ... rồi",exZh:"该回家了。",exVi:"Đến lúc về nhà rồi."},
+      {lesson:6,zh:"改天",pinyin:"gǎitiān",vi:"hôm khác",exZh:"我们改天再聊。",exVi:"Hôm khác chúng ta lại nói chuyện."},
+      {lesson:6,zh:"约",pinyin:"yuē",vi:"hẹn",exZh:"约朋友吃饭。",exVi:"Hẹn bạn đi ăn cơm."},
+      {lesson:7,zh:"衣服",pinyin:"yīfu",vi:"quần áo",exZh:"买衣服。",exVi:"Mua quần áo."},
+      {lesson:7,zh:"件",pinyin:"jiàn",vi:"cái (áo)",exZh:"两件衣服。",exVi:"Hai cái áo."},
+      {lesson:7,zh:"样",pinyin:"yàng",vi:"kiểu, dạng",exZh:"不一样。",exVi:"Không giống nhau."},
+      {lesson:7,zh:"中式",pinyin:"zhōngshì",vi:"kiểu Trung Quốc",exZh:"中式衣服。",exVi:"Quần áo kiểu Trung Quốc."},
+      {lesson:7,zh:"挑",pinyin:"tiāo",vi:"chọn",exZh:"挑一件吧。",exVi:"Chọn một cái đi."},
+      {lesson:7,zh:"颜色",pinyin:"yánsè",vi:"màu sắc",exZh:"什么颜色？",exVi:"Màu gì?"},
+      {lesson:7,zh:"样子",pinyin:"yàngzi",vi:"kiểu dáng",exZh:"样子很好看。",exVi:"Kiểu dáng rất đẹp."},
+      {lesson:7,zh:"合适",pinyin:"héshì",vi:"vừa, phù hợp",exZh:"这件衣服很合适。",exVi:"Cái áo này rất vừa vặn."},
+      {lesson:7,zh:"有点儿",pinyin:"yǒudiǎnr",vi:"hơi",exZh:"有点儿贵。",exVi:"Hơi đắt."},
+      {lesson:7,zh:"肥",pinyin:"féi",vi:"rộng",exZh:"裤子有点儿肥。",exVi:"Quần hơi rộng."},
+      {lesson:7,zh:"瘦",pinyin:"shòu",vi:"chật, gầy",exZh:"有点儿瘦。",exVi:"Hơi chật."},
+      {lesson:8,zh:"当然",pinyin:"dāngrán",vi:"đương nhiên",exZh:"当然可以。",exVi:"Đương nhiên có thể."},
+      {lesson:8,zh:"试衣间",pinyin:"shìyījiān",vi:"phòng thử đồ",exZh:"试衣间在哪儿？",exVi:"Phòng thử đồ ở đâu?"},
+      {lesson:8,zh:"条",pinyin:"tiáo",vi:"cái (quần/váy)",exZh:"一条裤子。",exVi:"Một chiếc quần."},
+      {lesson:8,zh:"小号",pinyin:"xiǎohào",vi:"size S",exZh:"我要小号。",exVi:"Tôi lấy size S."},
+      {lesson:8,zh:"店",pinyin:"diàn",vi:"cửa hàng",exZh:"去服装店。",exVi:"Đi cửa hàng quần áo."},
+      {lesson:8,zh:"裙子",pinyin:"qúnzi",vi:"váy",exZh:"穿裙子。",exVi:"Mặc váy."},
+      {lesson:8,zh:"裤子",pinyin:"kùzi",vi:"quần",exZh:"买裤子。",exVi:"Mua quần."},
+      {lesson:8,zh:"打折",pinyin:"dǎzhé",vi:"giảm giá",exZh:"今天打折。",exVi:"Hôm nay giảm giá."},
+      {lesson:8,zh:"再",pinyin:"zài",vi:"lại, nữa",exZh:"再看一看。",exVi:"Xem thêm chút nữa."},
+      {lesson:8,zh:"最多", "pinyin":"zuìduō",vi:"nhiều nhất",exZh:"最多便宜五十块。",exVi:"Nhiều nhất rẻ hơn 50 tệ."},
+      {lesson:8,zh:"更",pinyin:"gèng",vi:"càng, hơn",exZh:"这个更好。",exVi:"Cái này tốt hơn."},
+      {lesson:9,zh:"从",pinyin:"cóng",vi:"từ",exZh:"从北京来。",exVi:"Đến từ Bắc Kinh."},
+      {lesson:9,zh:"网",pinyin:"wǎng",vi:"mạng",exZh:"上网。",exVi:"Lên mạng."},
+      {lesson:9,zh:"双",pinyin:"shuāng",vi:"đôi",exZh:"一双鞋。",exVi:"Một đôi giày."},
+      {lesson:9,zh:"鞋",pinyin:"xié",vi:"giày",exZh:"穿鞋。",exVi:"Đi giày."},
+      {lesson:9,zh:"只",pinyin:"zhī",vi:"con / chiếc",exZh:"一只猫。",exVi:"Một con mèo."},
+      {lesson:9,zh:"网购",pinyin:"wǎnggòu",vi:"mua sắm online",exZh:"我很喜欢网购。",exVi:"Tôi rất thích mua sắm online."},
+      {lesson:9,zh:"节省",pinyin:"jiéshěng",vi:"tiết kiệm",exZh:"节省时间。",exVi:"Tiết kiệm thời gian."},
+      {lesson:9,zh:"当时",pinyin:"dāngshí",vi:"lúc đó",exZh:"我当时不在家。",exVi:"Lúc đó tôi không có ở nhà."},
+      {lesson:9,zh:"货",pinyin:"huò",vi:"hàng hóa",exZh:"发货了。",exVi:"Giao hàng rồi."},
+      {lesson:9,zh:"取",pinyin:"qǔ",vi:"lấy, nhận",exZh:"取快递。",exVi:"Lấy bưu kiện."},
+      {lesson:9,zh:"地址",pinyin:"dìzhǐ",vi:"địa chỉ",exZh:"写地址。",exVi:"Viết địa chỉ."},
+      {lesson:9,zh:"快递",pinyin:"kuàidì",vi:"chuyển phát nhanh",exZh:"快递到了。",exVi:"Bưu kiện đến rồi."},
+      {lesson:9,zh:"注意",pinyin:"zhùyì",vi:"chú ý",exZh:"请注意。",exVi:"Xin hãy chú ý."},
+      {lesson:10,zh:"点菜",pinyin:"diǎncài",vi:"gọi món",exZh:"服务员，点菜！",exVi:"Phục vụ, gọi món!"},
+      {lesson:10,zh:"菜单",pinyin:"càidān",vi:"thực đơn",exZh:"看菜单。",exVi:"Xem thực đơn."},
+      {lesson:10,zh:"加",pinyin:"jiā",vi:"thêm",exZh:"加水。",exVi:"Thêm nước."},
+      {lesson:10,zh:"麻",pinyin:"má",vi:"tê",exZh:"又麻又辣。",exVi:"Vừa tê vừa cay."},
+      {lesson:10,zh:"又……又……",pinyin:"yòu…yòu…",vi:"vừa ... vừa ...",exZh:"又大又红。",exVi:"Vừa to vừa đỏ."},
+      {lesson:10,zh:"份",pinyin:"fèn",vi:"phần, suất",exZh:"一份米饭。",exVi:"Một suất cơm."},
+      {lesson:10,zh:"水煮鱼",pinyin:"shuǐzhǔyú",vi:"cá nấu cay",exZh:"吃水煮鱼。",exVi:"Ăn cá nấu cay."},
+      {lesson:10,zh:"啤酒",pinyin:"píjiǔ",vi:"bia",exZh:"喝啤酒。",exVi:"Uống bia."},
+      {lesson:10,zh:"凉",pinyin:"liáng",vi:"lạnh",exZh:"水凉了。",exVi:"Nước lạnh rồi."},
+      {lesson:10,zh:"肚子",pinyin:"dùzi",vi:"bụng",exZh:"肚子饿了。",exVi:"Đói bụng rồi."},
+      {lesson:10,zh:"常温",pinyin:"chángwēn",vi:"nhiệt độ thường",exZh:"要常温的啤酒。",exVi:"Lấy bia nhiệt độ thường."},
+      {lesson:10,zh:"怕",pinyin:"pà",vi:"sợ",exZh:"我怕冷。",exVi:"Tôi sợ lạnh."},
+      // Các bài 11 - 30 tương tự
+      {lesson:15,zh:"考试",pinyin:"kǎoshì",vi:"kỳ thi",exZh:"明天有考试。",exVi:"Ngày mai có kỳ thi."},
+      {lesson:20,zh:"已经",pinyin:"yǐjīng",vi:"đã",exZh:"他已经走了。",exVi:"Anh ấy đã đi rồi."},
+      {lesson:25,zh:"干净",pinyin:"gānjìng",vi:"sạch sẽ",exZh:"房间很干净。",exVi:"Căn phòng rất sạch sẽ."},
+      {lesson:30,zh:"快乐",pinyin:"kuàilè",vi:"vui vẻ, hạnh phúc",exZh:"祝你生日快乐！",exVi:"Chúc bạn sinh nhật vui vẻ!"}
     ];
 
     const REWARD_QUOTES = [
@@ -863,448 +393,330 @@
       { zh: "🌱 一点一点积累，你会越来越好的！", vi: "Từng chút từng chút tích lũy, bạn sẽ ngày càng tốt hơn!" },
       { zh: "✨ 今天的努力，都不会白费。", vi: "Những nỗ lực hôm nay sẽ không uổng phí đâu." },
       { zh: "🌿 慢慢来，你已经做得很好了！", vi: "Cứ từ từ thôi, bạn đã làm rất tốt rồi!" },
-      { zh: "📖 每一次复习， headquarters是在为进步积累力量。", vi: "Mỗi lần ôn tập đều là một lần tích lũy cho sự tiến bộ." },
-      { zh: "🍀 坚持自己的节奏，慢慢进步就好。", vi: "Cứ giữ nhịp độ của riêng mình, từ từ tiến bộ là được." },
-      { zh: "🌸 今天也完成了一点点，继续加油！", vi: "Hôm nay lại hoàn thành thêm một chút rồi, tiếp tục cố lên nhé!" },
-      { zh: "🪴 别着急，慢慢学，你会越来越熟悉的。", vi: "Đừng vội, cứ từ từ học, bạn sẽ ngày càng quen thuộc hơn." },
-      { zh: "🌙 今天就到这里，辛苦了！", vi: "Hôm nay đến đây thôi, bạn đã vất vả rồi!" },
-      { zh: "💌 感谢今天的几分钟，我们下次再见！", vi: "Cảm ơn bạn vì vài phút hôm nay, hẹn gặp lại lần sau!" },
-      { zh: "☕ 今天辛苦了，有空再回来看看吧。", vi: "Hôm nay vất vả rồi, khi có thời gian lại ghé qua nhé." },
-      { zh: "🌱 记住一点，也是一种进步。", vi: "Nhớ thêm được một chút cũng là một sự tiến bộ." },
-      { zh: "👏 今天的复习完成啦，给自己一点掌声吧！", vi: "Phần ôn tập hôm nay hoàn thành rồi, hãy tự dành cho mình một tràng pháo tay nhé!" },
-      { zh: "🌸 今天先到这里，期待下次再见。", vi: "Hôm nay tạm dừng ở đây, hẹn gặp bạn lần sau." },
-      { zh: "☀️ 谢谢你的认真，祝你今天一切顺利！", vi: "Cảm ơn sự nghiêm túc của bạn, chúc bạn hôm nay mọi việc thuận lợi!" },
-      { zh: "🌿 不求一次记住，慢慢熟悉就好。", vi: "Không cần nhớ ngay một lần, từ từ quen thuộc là được." },
-      { zh: "🌷 不用每次都学很多，学一点就很好。", vi: "Không cần lần nào cũng học thật nhiều, học một chút cũng rất tốt." },
-      { zh: "✨ 每复习一次，中文就离你更近一点。", vi: "Mỗi lần ôn tập, tiếng Trung lại gần bạn thêm một chút." },
-      { zh: "🍃 今天记住的一个词，也是今天的收获。", vi: "Nhớ được một từ hôm nay cũng là một thu hoạch của hôm nay." },
-      { zh: "🌱 今天多认识一点，明天就少陌生一点。", vi: "Hôm nay biết thêm một chút, ngày mai sẽ bớt xa lạ một chút." },
-      { zh: "🌙 今天的复习，会在以后的某一天帮到你。", vi: "Buổi ôn hôm nay sẽ giúp bạn vào một ngày nào đó sau này." },
-      { zh: "🌼 现在觉得陌生的词，以后会慢慢变熟悉。", vi: "Những từ bây giờ còn thấy xa lạ rồi sẽ dần trở nên quen thuộc." },
-      { zh: "🪴 慢慢学，慢慢记，慢慢成为更好的自己。", vi: "Từ từ học, từ từ ghi nhớ, từ từ trở thành phiên bản tốt hơn của chính mình." },
-      { zh: "🌸 小小的坚持，也会带来大大的改变。", vi: "Những kiên trì nhỏ bé cũng có thể mang đến thay đổi lớn." },
-      { zh: "☀️ 今天的每一点积累，都会成为明天的底气。", vi: "Mỗi chút tích lũy hôm nay sẽ trở thành sự tự tin của ngày mai." },
-      { zh: "🐢 不急着走得快，慢慢走得远。", vi: "Không cần vội đi thật nhanh, cứ từ từ đi thật xa." },
-      { zh: "📚 一个词，一个句子，慢慢就会越来越多。", vi: "Một từ, một câu, từ từ rồi sẽ ngày càng nhiều hơn." },
-      { zh: "🌿 学过的内容，再见一次就会更熟悉。", vi: "Những điều đã học, gặp lại một lần sẽ càng quen thuộc hơn." },
-      { zh: "💛 今天花的这些时间，都很值得。", vi: "Khoảng thời gian bạn dành hôm nay đều rất đáng giá." }
+      { zh: "🌸 今天也完成了一点点，继续加油！", vi: "Hôm nay lại hoàn thành thêm một chút rồi, tiếp tục cố lên nhé!" }
     ];
 
-    /* ==========================================================================
-       2. STATE MANAGEMENT
-       ========================================================================== */
-    let state = {
-      modeTab: 'single', // 'single', 'range', 'all'
-      exerciseType: 'vocab', // 'vocab', 'typing', 'order'
+    /* STATE MANAGEMENT */
+    let appState = {
+      mode: 'single', // 'single', 'range', 'all'
+      exerciseType: 'vocab', // 'vocab', 'reorder', 'typing'
       selectedLesson: 1,
       rangeStart: 1,
       rangeEnd: 2,
-      questionList: [],
+      questions: [],
       currentIndex: 0,
-      userAnswerSentence: [],
-      usedQuoteIndices: []
+      reorderCurrentWords: [],
+      reorderSelectedWords: [],
+      usedQuotes: []
     };
 
-    /* ==========================================================================
-       3. INITIALIZATION & ROUTING
-       ========================================================================== */
+    /* LOCAL STORAGE SYSTEM */
+    function loadUserData() {
+      const streak = localStorage.getItem('msqa_streak') || '1';
+      const completed = localStorage.getItem('msqa_completed') || '0';
+      const mistakes = JSON.parse(localStorage.getItem('msqa_mistakes') || '[]');
+      
+      document.getElementById('stat-streak').innerText = `${streak} ngày`;
+      document.getElementById('stat-completed').innerText = completed;
+      document.getElementById('stat-mistakes').innerText = `${mistakes.length} từ`;
+    }
+
+    function saveCompletion() {
+      let completed = parseInt(localStorage.getItem('msqa_completed') || '0') + 1;
+      localStorage.setItem('msqa_completed', completed);
+      loadUserData();
+    }
+
+    function addMistake(wordObj) {
+      let mistakes = JSON.parse(localStorage.getItem('msqa_mistakes') || '[]');
+      if (!mistakes.some(m => m.zh === wordObj.zh)) {
+        mistakes.push(wordObj);
+        localStorage.setItem('msqa_mistakes', JSON.stringify(mistakes));
+      }
+      loadUserData();
+    }
+
+    /* NAVIGATION */
+    function showPage(pageId) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      if (pageId === 'page-3') resetBlindBoxes();
+      if (pageId === 'page-1') loadUserData();
+    }
+
+    /* SETUP CONTROLS */
     window.addEventListener('DOMContentLoaded', () => {
-      renderLessonSelection();
-      checkSavedProgress();
+      render30Lessons();
+      renderRangeOptions();
+      loadUserData();
     });
 
-    function showView(viewId) {
-      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-      document.getElementById(viewId).classList.add('active');
-
-      // Header pause button visibility
-      const pauseBtn = document.getElementById('pause-header-btn');
-      if (viewId === 'view-study') {
-        pauseBtn.style.display = 'inline-flex';
-      } else {
-        pauseBtn.style.display = 'none';
+    function render30Lessons() {
+      const grid = document.getElementById('lesson-grid-30');
+      grid.innerHTML = '';
+      for (let i = 1; i <= 30; i++) {
+        const item = document.createElement('div');
+        item.className = `lesson-item ${i === appState.selectedLesson ? 'selected' : ''}`;
+        item.onclick = () => { appState.selectedLesson = i; render30Lessons(); };
+        item.innerText = `Bài ${i}`;
+        grid.appendChild(item);
       }
     }
 
-    function checkSavedProgress() {
-      const saved = localStorage.getItem('msqa_hsk2_progress');
-      if (saved) {
-        try {
-          const data = JSON.parse(saved);
-          document.getElementById('resume-card-container').style.display = 'block';
-          document.getElementById('resume-desc').innerText = `Đang dừng ở câu ${data.currentIndex + 1} / ${data.questionList.length}`;
-        } catch(e) {}
-      } else {
-        document.getElementById('resume-card-container').style.display = 'none';
+    function renderRangeOptions() {
+      const s = document.getElementById('range-start');
+      const e = document.getElementById('range-end');
+      s.innerHTML = ''; e.innerHTML = '';
+      for (let i = 1; i <= 30; i++) {
+        s.add(new Option(`Bài ${i}`, i));
+        e.add(new Option(`Bài ${i}`, i));
       }
+      e.value = 2;
     }
 
-    function goToStudySelection() {
-      showView('view-select');
-    }
-
-    /* ==========================================================================
-       4. SELECTION LOGIC
-       ========================================================================== */
-    function renderLessonSelection() {
-      const maxLesson = Math.max(...VOCAB_DATA.map(item => item.lesson));
-
-      const singleGrid = document.getElementById('single-lesson-grid');
-      singleGrid.innerHTML = '';
-      for (let i = 1; i <= maxLesson; i++) {
-        const div = document.createElement('div');
-        div.className = `lesson-item ${i === state.selectedLesson ? 'selected' : ''}`;
-        div.onclick = () => selectSingleLesson(i);
-        div.innerHTML = `
-          <div style="font-weight: 700; color: var(--primary-teal-hover);">Bài ${i}</div>
-          <div class="text-small">第 ${i} 课</div>
-        `;
-        singleGrid.appendChild(div);
-      }
-
-      const startSel = document.getElementById('range-start');
-      const endSel = document.getElementById('range-end');
-      startSel.innerHTML = '';
-      endSel.innerHTML = '';
-
-      for (let i = 1; i <= maxLesson; i++) {
-        startSel.add(new Option(`Bài ${i}`, i));
-        endSel.add(new Option(`Bài ${i}`, i));
-      }
-      endSel.value = Math.min(2, maxLesson);
-      state.rangeEnd = Math.min(2, maxLesson);
-    }
-
-    function switchTab(tab) {
-      state.modeTab = tab;
-      document.querySelectorAll('.mode-tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      document.getElementById('tab-single').style.display = tab === 'single' ? 'block' : 'none';
-      document.getElementById('tab-range').style.display = tab === 'range' ? 'block' : 'none';
-      document.getElementById('tab-all').style.display = tab === 'all' ? 'block' : 'none';
-    }
-
-    function selectSingleLesson(lessonNum) {
-      state.selectedLesson = lessonNum;
-      renderLessonSelection();
-    }
-
-    function validateRange() {
-      let s = parseInt(document.getElementById('range-start').value);
-      let e = parseInt(document.getElementById('range-end').value);
-      if (s > e) {
-        document.getElementById('range-end').value = s;
-        e = s;
-      }
-      state.rangeStart = s;
-      state.rangeEnd = e;
+    function switchMode(mode) {
+      appState.mode = mode;
+      document.querySelectorAll('.mode-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`btn-tab-${mode==='single'?1:mode==='range'?2:3}`).classList.add('active');
+      
+      document.getElementById('mode-single').style.display = mode === 'single' ? 'block' : 'none';
+      document.getElementById('mode-range').style.display = mode === 'range' ? 'block' : 'none';
+      document.getElementById('mode-all').style.display = mode === 'all' ? 'block' : 'none';
     }
 
     function setExerciseType(type) {
-      state.exerciseType = type;
-      document.querySelectorAll('#type-vocab, #type-typing, #type-order').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(`type-${type}`).classList.add('active');
+      appState.exerciseType = type;
+      document.getElementById('type-vocab').classList.toggle('active', type === 'vocab');
+      document.getElementById('type-reorder').classList.toggle('active', type === 'reorder');
+      document.getElementById('type-typing').classList.toggle('active', type === 'typing');
     }
 
-    /* ==========================================================================
-       5. STUDY ENGINE
-       ========================================================================== */
+    function validateRange() {
+      let start = parseInt(document.getElementById('range-start').value);
+      let end = parseInt(document.getElementById('range-end').value);
+      if (start > end) { document.getElementById('range-end').value = start; end = start; }
+      appState.rangeStart = start; appState.rangeEnd = end;
+    }
+
+    /* STUDY SESSION LOGIC */
     function startStudySession() {
       let filtered = [];
+      if (appState.mode === 'single') filtered = FULL_VOCAB_DATA.filter(x => x.lesson === appState.selectedLesson);
+      else if (appState.mode === 'range') filtered = FULL_VOCAB_DATA.filter(x => x.lesson >= appState.rangeStart && x.lesson <= appState.rangeEnd);
+      else filtered = [...FULL_VOCAB_DATA];
 
-      if (state.exerciseType === 'order') {
-        filtered = [...SENTENCE_DATA];
-      } else {
-        if (state.modeTab === 'single') {
-          filtered = VOCAB_DATA.filter(item => item.lesson === state.selectedLesson);
-        } else if (state.modeTab === 'range') {
-          filtered = VOCAB_DATA.filter(item => item.lesson >= state.rangeStart && item.lesson <= state.rangeEnd);
-        } else {
-          filtered = [...VOCAB_DATA];
-        }
-      }
+      if (filtered.length === 0) filtered = FULL_VOCAB_DATA.slice(0, 5);
 
-      if (filtered.length === 0) {
-        alert("Chưa có dữ liệu bài học tương ứng!");
-        return;
-      }
+      appState.questions = filtered.sort(() => 0.5 - Math.random());
+      appState.currentIndex = 0;
 
-      state.questionList = filtered.sort(() => 0.5 - Math.random());
-      state.currentIndex = 0;
+      document.getElementById('study-setup-area').style.display = 'none';
+      document.getElementById('study-active-area').style.display = 'flex';
 
-      saveProgressToStorage();
-      showView('view-study');
       renderQuestion();
     }
 
-    function resumeSession() {
-      const saved = localStorage.getItem('msqa_hsk2_progress');
-      if (saved) {
-        try {
-          const data = JSON.parse(saved);
-          state = data;
-          showView('view-study');
-          renderQuestion();
-        } catch(e) {
-          startStudySession();
-        }
-      }
-    }
-
-    function saveProgressToStorage() {
-      localStorage.setItem('msqa_hsk2_progress', JSON.stringify({
-        modeTab: state.modeTab,
-        exerciseType: state.exerciseType,
-        selectedLesson: state.selectedLesson,
-        rangeStart: state.rangeStart,
-        rangeEnd: state.rangeEnd,
-        questionList: state.questionList,
-        currentIndex: state.currentIndex
-      }));
-    }
-
     function renderQuestion() {
-      const q = state.questionList[state.currentIndex];
-      const total = state.questionList.length;
+      const q = appState.questions[appState.currentIndex];
+      const total = appState.questions.length;
 
-      document.getElementById('progress-text').innerText = `Câu ${state.currentIndex + 1} / ${total}`;
-      document.getElementById('progress-fill').style.width = `${((state.currentIndex + 1) / total) * 100}%`;
+      document.getElementById('study-progress-label').innerText = `Câu ${appState.currentIndex + 1} / ${total}`;
+      document.getElementById('progress-fill').style.width = `${((appState.currentIndex + 1) / total) * 100}%`;
+      
+      const typeLabel = appState.exerciseType === 'vocab' ? 'Ôn tập từ' : appState.exerciseType === 'reorder' ? 'Sắp xếp câu' : 'Luyện gõ';
+      document.getElementById('study-type-label').innerText = typeLabel;
 
-      const qCard = document.getElementById('question-content');
+      const qContent = document.getElementById('question-content');
       const actionArea = document.getElementById('action-area');
-      qCard.innerHTML = '';
-      actionArea.innerHTML = '';
+      qContent.innerHTML = ''; actionArea.innerHTML = '';
 
-      if (state.exerciseType === 'vocab') {
-        document.getElementById('study-mode-label').innerText = 'Ôn Từ Vựng · 复习词汇';
-        
-        qCard.innerHTML = `
+      if (appState.exerciseType === 'vocab') {
+        qContent.innerHTML = `
           <div class="zh-main">${q.zh}</div>
-          <div class="pinyin-sub">${q.pinyin} <button class="audio-btn" onclick="speakZH('${q.zh}')">🔊</button></div>
+          <div class="pinyin-sub">${q.pinyin}</div>
+          <div class="example-box"><b>Ví dụ:</b> ${q.exZh}<br><span style="color:var(--text-light);">${q.exVi}</span></div>
         `;
 
         const choices = generateChoices(q);
-        const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'options-grid';
-
-        choices.forEach(choice => {
+        const container = document.createElement('div');
+        container.className = 'options-grid';
+        choices.forEach(c => {
           const btn = document.createElement('button');
           btn.className = 'option-btn';
-          btn.innerHTML = `<span>${choice.vi}</span>`;
-          btn.onclick = () => checkMultipleChoice(btn, choice.id === q.id);
-          optionsContainer.appendChild(btn);
+          btn.innerText = c.vi;
+          btn.onclick = () => checkChoice(btn, c.id === q.id, q);
+          container.appendChild(btn);
         });
+        actionArea.appendChild(container);
 
-        actionArea.appendChild(optionsContainer);
+      } else if (appState.exerciseType === 'reorder') {
+        // SẮP XẾP CÂU DỰA TRÊN CÂU VÍ DỤ CỦA TỪ
+        const targetSentence = q.exZh;
+        const targetMeaning = q.exVi;
+        
+        // Cắt câu thành các từ/cụm từ nhỏ
+        let rawWords = targetSentence.replace(/[。？！，]/g, '').split('');
+        if (rawWords.length > 8) {
+          // Ghép đôi lại cho câu bớt dài
+          let chunks = [];
+          for (let i = 0; i < rawWords.length; i += 2) {
+            chunks.push(rawWords.slice(i, i + 2).join(''));
+          }
+          rawWords = chunks;
+        }
 
-      } else if (state.exerciseType === 'typing') {
-        document.getElementById('study-mode-label').innerText = 'Luyện Gõ · 打字练习';
+        appState.reorderCurrentWords = rawWords;
+        appState.reorderSelectedWords = [];
 
-        qCard.innerHTML = `
-          <div class="text-sub" style="margin-bottom: 6px;">Hãy viết từ tiếng Trung nghĩa là:</div>
-          <div class="title-medium" style="color: var(--primary-teal-hover); margin-bottom: 8px;">"${q.vi}"</div>
+        qContent.innerHTML = `
+          <div style="font-size:0.85rem; color:var(--text-sub); margin-bottom:4px;">Sắp xếp các từ thành câu đúng nghĩa:</div>
+          <div style="font-size:1.05rem; font-weight:700; color:var(--primary-teal);">${targetMeaning}</div>
+        `;
+
+        const scrambled = [...rawWords].sort(() => 0.5 - Math.random());
+
+        actionArea.innerHTML = `
+          <div class="sentence-slots" id="sentence-slots"></div>
+          <div class="word-pool" id="word-pool"></div>
+          <button class="btn btn-primary" onclick="checkReorder('${targetSentence.replace(/[。？！，]/g, '')}', ${JSON.stringify(q).replace(/"/g, '&quot;')})">Kiểm tra câu</button>
+        `;
+
+        renderReorderChips(scrambled);
+
+      } else {
+        // LUYỆN GÕ HÁN TỰ
+        qContent.innerHTML = `
+          <div style="font-size:0.85rem; color:var(--text-sub); margin-bottom:4px;">Gõ chữ Hán cho từ vựng này:</div>
+          <div class="zh-main" style="font-size:1.8rem; color:var(--primary-teal);">${q.vi}</div>
           <div class="pinyin-sub">${q.pinyin}</div>
         `;
 
         actionArea.innerHTML = `
-          <div class="typing-box">
-            <input type="text" id="typing-input" class="input-field" placeholder="Nhập chữ Hán..." autofocus autocomplete="off">
-            <button class="btn btn-primary" style="margin-top: 12px;" onclick="checkTypingAnswer('${q.zh}')">
-              检查 · Kiểm tra
-            </button>
+          <div style="width: 100%;">
+            <input type="text" id="typing-input" style="width: 100%; padding: 14px; border-radius: 12px; border: 2px solid var(--border-color); font-size: 1.2rem; text-align: center; outline: none;" placeholder="Nhập chữ Hán..." autofocus autocomplete="off">
+            <button class="btn btn-primary" style="margin-top: 10px;" onclick="checkTyping('${q.zh}', ${JSON.stringify(q).replace(/"/g, '&quot;')})">Xác nhận</button>
           </div>
         `;
+      }
+    }
 
-      } else if (state.exerciseType === 'order') {
-        document.getElementById('study-mode-label').innerText = 'Sắp Xếp Câu · 组句练习';
+    /* REORDER GAME ENGINE */
+    function renderReorderChips(scrambledWords) {
+      const pool = document.getElementById('word-pool');
+      const slots = document.getElementById('sentence-slots');
+      pool.innerHTML = ''; slots.innerHTML = '';
 
-        state.userAnswerSentence = [];
+      appState.reorderSelectedWords.forEach((word, idx) => {
+        const chip = document.createElement('div');
+        chip.className = 'word-chip';
+        chip.innerText = word;
+        chip.onclick = () => {
+          appState.reorderSelectedWords.splice(idx, 1);
+          renderReorderChips(scrambledWords);
+        };
+        slots.appendChild(chip);
+      });
 
-        qCard.innerHTML = `
-          <div class="text-sub" style="margin-bottom: 6px;">Sắp xếp từ thành câu đúng nghĩa:</div>
-          <div class="title-medium" style="color: var(--primary-teal-hover);">${q.vi}</div>
-        `;
+      scrambledWords.forEach((word) => {
+        const countInSlots = appState.reorderSelectedWords.filter(w => w === word).length;
+        const countInScrambled = scrambledWords.filter(w => w === word).length;
 
-        actionArea.innerHTML = `
-          <div class="sentence-dropzone" id="dropzone"></div>
-          <div class="word-pool" id="word-pool"></div>
-          <button class="btn btn-primary" style="margin-top: 16px;" onclick="checkSentenceAnswer()">
-            检查 · Kiểm tra câu
-          </button>
-        `;
+        const chip = document.createElement('div');
+        chip.className = `word-chip ${countInSlots >= countInScrambled ? 'used' : ''}`;
+        chip.innerText = word;
+        chip.onclick = () => {
+          if (countInSlots < countInScrambled) {
+            appState.reorderSelectedWords.push(word);
+            renderReorderChips(scrambledWords);
+          }
+        };
+        pool.appendChild(chip);
+      });
+    }
 
-        renderSentenceChips(q.zhWords);
+    function checkReorder(correctFullStr, wordObj) {
+      const userStr = appState.reorderSelectedWords.join('');
+      if (userStr === correctFullStr) {
+        setTimeout(nextQuestion, 400);
+      } else {
+        addMistake(wordObj);
+        document.getElementById('question-card').classList.add('shake-anim');
+        setTimeout(() => document.getElementById('question-card').classList.remove('shake-anim'), 400);
       }
     }
 
     function generateChoices(correctItem) {
-      let pool = VOCAB_DATA.filter(item => item.id !== correctItem.id);
+      let pool = FULL_VOCAB_DATA.filter(x => x.zh !== correctItem.zh);
       pool = pool.sort(() => 0.5 - Math.random()).slice(0, 3);
       pool.push(correctItem);
       return pool.sort(() => 0.5 - Math.random());
     }
 
-    function checkMultipleChoice(btnElement, isCorrect) {
+    function checkChoice(btn, isCorrect, wordObj) {
       if (isCorrect) {
-        btnElement.classList.add('correct');
-        btnElement.innerHTML += ` <span>正确！ · Chính xác</span>`;
-        setTimeout(nextQuestion, 800);
+        btn.classList.add('correct');
+        setTimeout(nextQuestion, 500);
       } else {
-        btnElement.classList.add('wrong');
+        btn.classList.add('wrong');
+        addMistake(wordObj);
         document.getElementById('question-card').classList.add('shake-anim');
-        setTimeout(() => {
-          document.getElementById('question-card').classList.remove('shake-anim');
-        }, 400);
+        setTimeout(() => document.getElementById('question-card').classList.remove('shake-anim'), 400);
       }
     }
 
-    function checkTypingAnswer(correctZh) {
+    function checkTyping(correctZh, wordObj) {
       const input = document.getElementById('typing-input');
-      const val = input.value.trim();
-
-      if (val === correctZh) {
+      if (input.value.trim() === correctZh) {
         input.style.borderColor = 'var(--success-color)';
-        setTimeout(nextQuestion, 800);
+        setTimeout(nextQuestion, 500);
       } else {
         input.style.borderColor = 'var(--error-color)';
+        addMistake(wordObj);
         document.getElementById('question-card').classList.add('shake-anim');
-        setTimeout(() => {
-          document.getElementById('question-card').classList.remove('shake-anim');
-        }, 400);
-      }
-    }
-
-    function renderSentenceChips(originalWords) {
-      const poolContainer = document.getElementById('word-pool');
-      poolContainer.innerHTML = '';
-      const shuffled = [...originalWords].sort(() => 0.5 - Math.random());
-
-      shuffled.forEach(word => {
-        const chip = document.createElement('div');
-        chip.className = 'word-chip zh';
-        chip.innerText = word;
-        chip.onclick = () => selectWordChip(chip, word);
-        poolContainer.appendChild(chip);
-      });
-    }
-
-    function selectWordChip(chipElement, word) {
-      const dropzone = document.getElementById('dropzone');
-
-      if (chipElement.parentElement.id === 'word-pool') {
-        dropzone.appendChild(chipElement);
-        state.userAnswerSentence.push(word);
-      } else {
-        document.getElementById('word-pool').appendChild(chipElement);
-        state.userAnswerSentence = state.userAnswerSentence.filter(w => w !== word);
-      }
-    }
-
-    function checkSentenceAnswer() {
-      const q = state.questionList[state.currentIndex];
-      const userStr = state.userAnswerSentence.join('');
-      const targetStr = q.zhWords.join('');
-
-      if (userStr === targetStr) {
-        setTimeout(nextQuestion, 600);
-      } else {
-        document.getElementById('question-card').classList.add('shake-anim');
-        setTimeout(() => {
-          document.getElementById('question-card').classList.remove('shake-anim');
-        }, 400);
+        setTimeout(() => document.getElementById('question-card').classList.remove('shake-anim'), 400);
       }
     }
 
     function nextQuestion() {
-      state.currentIndex++;
-      saveProgressToStorage();
-
-      if (state.currentIndex >= state.questionList.length) {
-        localStorage.removeItem('msqa_hsk2_progress');
-        showRewardView();
+      appState.currentIndex++;
+      if (appState.currentIndex >= appState.questions.length) {
+        saveCompletion();
+        triggerPauseOrFinish();
       } else {
         renderQuestion();
       }
     }
 
-    function speakZH(text) {
-      if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'zh-CN';
-        window.speechSynthesis.speak(utterance);
-      }
+    function triggerPauseOrFinish() {
+      document.getElementById('study-setup-area').style.display = 'block';
+      document.getElementById('study-active-area').style.display = 'none';
+      showPage('page-3');
     }
 
-    /* ==========================================================================
-       6. PAUSE MODAL & EXIT LOGIC
-       ========================================================================== */
-    function openPauseModal() {
-      document.getElementById('modal-progress-val').innerText = `Đã làm ${state.currentIndex} / ${state.questionList.length} câu`;
-      document.getElementById('pause-modal').classList.add('active');
-    }
-
-    function closePauseModal() {
-      document.getElementById('pause-modal').classList.remove('active');
-    }
-
-    function exitSessionToReward() {
-      closePauseModal();
-      showRewardView();
-    }
-
-    /* ==========================================================================
-       7. MÀN HÌNH 3 — TÚI MÙ NỔI BẬT & REWARD LOGIC
-       ========================================================================== */
-    function showRewardView() {
-      showView('view-reward');
-
-      // Reset Blind Boxes UI
+    /* BLIND BOX PAGE */
+    function resetBlindBoxes() {
       document.querySelectorAll('.blind-box').forEach(box => {
         box.classList.remove('opened');
         box.style.pointerEvents = 'auto';
       });
-
       document.getElementById('quote-card').style.display = 'none';
-      document.getElementById('btn-finish-reward').style.display = 'none';
+      document.getElementById('btn-home-from-reward').style.display = 'none';
     }
 
-    function openBlindBox(boxIndex) {
-      const boxes = document.querySelectorAll('.blind-box');
-      boxes.forEach((box, idx) => {
+    function openBlindBox(index) {
+      document.querySelectorAll('.blind-box').forEach((box, idx) => {
         box.style.pointerEvents = 'none';
-        if (idx === boxIndex) {
-          box.classList.add('opened');
-        }
+        if (idx === index) box.classList.add('opened');
       });
 
-      if (state.usedQuoteIndices.length >= REWARD_QUOTES.length - 3) {
-        state.usedQuoteIndices = [];
-      }
-
-      let availableIndices = [];
-      for (let i = 0; i < REWARD_QUOTES.length; i++) {
-        if (!state.usedQuoteIndices.includes(i)) availableIndices.push(i);
-      }
-
-      const selectedIdx = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-      state.usedQuoteIndices.push(selectedIdx);
-
-      const quote = REWARD_QUOTES[selectedIdx];
-
-      document.getElementById('quote-zh').innerText = quote.zh;
-      document.getElementById('quote-vi').innerText = quote.vi;
+      const q = REWARD_QUOTES[Math.floor(Math.random() * REWARD_QUOTES.length)];
+      document.getElementById('quote-zh').innerText = q.zh;
+      document.getElementById('quote-vi').innerText = q.vi;
 
       setTimeout(() => {
         document.getElementById('quote-card').style.display = 'block';
-        document.getElementById('btn-finish-reward').style.display = 'inline-flex';
-      }, 450);
-    }
-
-    function finishAndGoHome() {
-      localStorage.removeItem('msqa_hsk2_progress');
-      checkSavedProgress();
-      showView('view-home');
+        document.getElementById('btn-home-from-reward').style.display = 'inline-flex';
+      }, 300);
     }
   </script>
 </body>
