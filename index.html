@@ -132,6 +132,7 @@
     .options-grid { display: grid; gap: 10px; margin-bottom: 20px; }
     .btn-option { background: white; border: 2px solid var(--card-border); border-bottom-width: 4px; padding: 14px; border-radius: 12px; font-size: 17px; font-weight: bold; text-align: left; cursor: pointer; color: var(--text); }
     .btn-option:hover { background: #f1f1f1; }
+    .btn-option.selected { border-color: var(--secondary); background: #e0f2fe; }
 
     .word-pool, .sentence-target { display: flex; flex-wrap: wrap; gap: 8px; min-height: 55px; padding: 10px; border-radius: 12px; margin-bottom: 15px; }
     .sentence-target { background: #fff; border: 2px dashed #bbb; align-items: center; }
@@ -144,8 +145,6 @@
 
     .btn-main { width: 100%; background: var(--primary); color: white; border: none; border-bottom: 4px solid var(--primary-dark); padding: 14px; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
     .btn-main:hover { background: #00a000; }
-    .btn-secondary { background: var(--secondary); border-color: #0b93d5; }
-    .btn-secondary:hover { background: #139ad9; }
 
     .hidden { display: none !important; }
     
@@ -160,59 +159,27 @@
     #loading { text-align: center; font-size: 18px; color: #666; padding: 40px 0; }
 
     /* ---------------- TÚI MÙ CUỐI BUỔI (BLIND BOX) ---------------- */
-    .blind-box-section {
-      text-align: center;
-      padding: 10px 0;
-      animation: fadeIn 0.6s ease;
-    }
-
-    .blind-box-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 25px;
-    }
-
-    .blind-boxes-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 25px;
-    }
-
-    .blind-box-wrapper {
-      position: relative;
-      cursor: pointer;
-    }
+    .blind-box-section { text-align: center; padding: 10px 0; animation: fadeIn 0.6s ease; }
+    .blind-box-title { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 25px; }
+    .blind-boxes-container { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; }
+    .blind-box-wrapper { position: relative; cursor: pointer; }
 
     .blind-box {
-      width: 85px;
-      height: 95px;
+      width: 85px; height: 95px;
       background: linear-gradient(145deg, #ffffff, #f0f4f8);
       border: 2px solid #e2e8f0;
       border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.06);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
     }
 
-    .blind-box-icon {
-      font-size: 32px;
-    }
-
-    .blind-box-sparkle {
-      position: absolute;
-      font-size: 12px;
-      opacity: 0.7;
-    }
+    .blind-box-icon { font-size: 32px; }
+    .blind-box-sparkle { position: absolute; font-size: 12px; opacity: 0.7; }
     .sp-1 { top: 6px; right: 8px; animation: pulseSparkle 2s infinite alternate; }
     .sp-2 { bottom: 6px; left: 8px; animation: pulseSparkle 2s 1s infinite alternate; }
 
-    /* Keyframes Animation Túi Mù */
     .box-anim-1 { animation: boxFloat1 3.5s ease-in-out infinite; }
     .box-anim-2 { animation: boxFloat2 4s ease-in-out infinite; }
     .box-anim-3 { animation: boxFloat3 3.8s ease-in-out infinite; }
@@ -223,16 +190,8 @@
       box-shadow: 0 12px 25px rgba(56, 189, 248, 0.22);
     }
 
-    .blind-box-wrapper.opening .blind-box {
-      animation: boxOpenAnim 0.6s ease forwards !important;
-    }
-
-    .blind-box-wrapper.disabled {
-      pointer-events: none;
-      opacity: 0.4;
-      filter: grayscale(0.5);
-      transform: scale(0.92);
-    }
+    .blind-box-wrapper.opening .blind-box { animation: boxOpenAnim 0.6s ease forwards !important; }
+    .blind-box-wrapper.disabled { pointer-events: none; opacity: 0.4; filter: grayscale(0.5); transform: scale(0.92); }
 
     .quote-result-card {
       background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
@@ -244,71 +203,22 @@
       animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .quote-zh {
-      font-size: 19px;
-      font-weight: 700;
-      color: #15803d;
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
+    .quote-zh { font-size: 19px; font-weight: 700; color: #15803d; margin-bottom: 8px; line-height: 1.4; }
+    .quote-vi { font-size: 15px; color: #4b5563; font-style: italic; }
 
-    .quote-vi {
-      font-size: 15px;
-      color: #4b5563;
-      font-style: italic;
-    }
-
-    /* ANIMATIONS GENERICS */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes floatSoft {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes boxFloat1 {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-4px) rotate(-2deg); }
-      75% { transform: translateY(3px) rotate(2deg); }
-    }
-
-    @keyframes boxFloat2 {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      30% { transform: translateY(4px) rotate(2deg); }
-      70% { transform: translateY(-3px) rotate(-1.5deg); }
-    }
-
-    @keyframes boxFloat3 {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      40% { transform: translateY(-3px) rotate(1.5deg); }
-      80% { transform: translateY(3px) rotate(-2deg); }
-    }
-
-    @keyframes pulseSparkle {
-      from { opacity: 0.3; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1.2); }
-    }
-
-    @keyframes boxOpenAnim {
-      0% { transform: scale(1) rotate(0deg); }
-      25% { transform: scale(1.15) rotate(-6deg); }
-      50% { transform: scale(1.2) rotate(6deg); }
-      75% { transform: scale(1.25) rotate(-3deg); }
-      100% { transform: scale(1.1) rotate(0deg); }
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes floatSoft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes boxFloat1 { 0%, 100% { transform: translateY(0) rotate(0deg); } 25% { transform: translateY(-4px) rotate(-2deg); } 75% { transform: translateY(3px) rotate(2deg); } }
+    @keyframes boxFloat2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 30% { transform: translateY(4px) rotate(2deg); } 70% { transform: translateY(-3px) rotate(-1.5deg); } }
+    @keyframes boxFloat3 { 0%, 100% { transform: translateY(0) rotate(0deg); } 40% { transform: translateY(-3px) rotate(1.5deg); } 80% { transform: translateY(3px) rotate(-2deg); } }
+    @keyframes pulseSparkle { from { opacity: 0.3; transform: scale(0.8); } to { opacity: 1; transform: scale(1.2); } }
+    @keyframes boxOpenAnim { 0% { transform: scale(1) rotate(0deg); } 25% { transform: scale(1.15) rotate(-6deg); } 50% { transform: scale(1.2) rotate(6deg); } 75% { transform: scale(1.25) rotate(-3deg); } 100% { transform: scale(1.1) rotate(0deg); } }
   </style>
 </head>
 <body>
 
-<!-- TRANG CHỦ MỚI (MÀN HÌNH CHÀO) -->
+<!-- TRANG CHỦ (MÀN HÌNH CHÀO) -->
 <div id="welcomeScreen">
   <div class="welcome-card">
     <div class="welcome-decor">🌿 ✨ 🌸 📖</div>
@@ -395,11 +305,10 @@
   let totalInRound = 0;
   let completedInRound = 0;
   let isAnswered = false;
+  let selectedOption = null;
 
   const STORAGE_KEY = 'review_level2_saved_progress';
-  const BLIND_BOX_HISTORY_KEY = 'review_level2_blindbox_history';
 
-  // POOL CÂU CHÀO TRANG CHỦ (13 câu)
   const HOME_GREETINGS = [
     "👋 欢迎回来！今天也要进步一点点哦～",
     "🌿 欢迎回来！一点一点，慢慢变熟悉。",
@@ -416,7 +325,6 @@
     "🌸 一点一点，慢慢来就好。"
   ];
 
-  // POOL CÂU TÚI MÙ (22 câu)
   const BLIND_BOX_QUOTES = [
     { zh: "🌷 做得很好，今天也有一点收获。", vi: "Làm tốt lắm, hôm nay lại có thêm một chút thu hoạch rồi." },
     { zh: "🌱 一点一点积累，你会越来越好的！", vi: "Từng chút từng chút tích lũy, bạn sẽ ngày càng tốt hơn!" },
@@ -456,11 +364,6 @@
 
   function enterMainApp() {
     document.getElementById('welcomeScreen').style.display = 'none';
-  }
-
-  function goBackToHome() {
-    initWelcomeGreeting();
-    document.getElementById('welcomeScreen').style.display = 'flex';
   }
 
   function cleanPunctuation(str) {
@@ -726,7 +629,6 @@
     const pct = totalInRound > 0 ? (completedInRound / totalInRound) * 100 : 0;
     document.getElementById('progressBar').style.width = `${Math.min(pct, 100)}%`;
     
-    // Đã ôn: X từ / câu (Nhẹ nhàng, tránh tạo áp lực X/500)
     let unitLabel = 'từ';
     if (activeSection === 2) unitLabel = 'câu';
     else if (activeSection === 3) unitLabel = 'mục';
@@ -812,79 +714,73 @@
         chip.className = 'word-chip';
         chip.innerText = word;
         chip.onclick = () => {
-          if (chip.parentElement.id === 'poolArea') targetArea.appendChild(chip);
-          else poolArea.appendChild(chip);
+          if (chip.parentElement === poolArea) {
+            targetArea.appendChild(chip);
+          } else {
+            poolArea.appendChild(chip);
+          }
         };
         poolArea.appendChild(chip);
       });
 
     } else if (activeSection === 3) {
-      if (currentItem.taskType === 'vocab') {
-        document.getElementById('typeTag').innerText = "📝 LUYỆN GÕ: TỪ VỰNG";
-        document.getElementById('questionTitle').innerText = currentItem.questionVi;
-        document.getElementById('questionSub').innerText = "Hãy gõ từ tiếng Trung tương ứng:";
-      } else {
-        document.getElementById('typeTag').innerText = "💬 LUYỆN GÕ: CÂU VÍ DỤ";
-        document.getElementById('questionTitle').innerText = currentItem.questionVi;
-        document.getElementById('questionSub').innerText = "Hãy gõ câu tiếng Trung hoàn chỉnh:";
-      }
+      document.getElementById('typeTag').innerText = "PHẦN 3: LUYỆN GÕ TIẾNG TRUNG";
+      document.getElementById('questionTitle').innerText = currentItem.questionVi;
+      document.getElementById('questionSub').innerText = `Gợi ý Pinyin: ${currentItem.pinyinHint}`;
 
       area.innerHTML = `
         <input type="text" id="typeInput" placeholder="Gõ chữ Hán vào đây..." autocomplete="off">
       `;
-      setTimeout(() => {
-        const inp = document.getElementById('typeInput');
-        if (inp) inp.focus();
-      }, 100);
     }
   }
 
-  let selectedOption = null;
-  let isOptionCorrect = false;
-
   function selectOption(btn, isCorrect) {
-    document.querySelectorAll('.btn-option').forEach(b => b.style.borderColor = 'var(--card-border)');
-    btn.style.borderColor = 'var(--secondary)';
-    selectedOption = btn;
-    isOptionCorrect = isCorrect;
+    if (isAnswered) return;
+    document.querySelectorAll('.btn-option').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedOption = isCorrect;
   }
 
   function handleAction() {
     if (isAnswered) {
-      completedInRound++;
-      updateProgress();
       nextQuestion();
       return;
     }
 
     let isCorrect = false;
-    let correctAnswerText = '';
+    let correctText = '';
 
     if (activeSection === 1) {
-      if (!selectedOption) { alert("Vui lòng chọn 1 đáp án!"); return; }
-      isCorrect = isOptionCorrect;
-      correctAnswerText = `${currentItem.vocab} (${currentItem.pinyin}) : ${currentItem.meaning}`;
-    } else if (activeSection === 2) {
-      const userWords = Array.from(document.getElementById('targetArea').children)
-        .map(el => el.innerText.trim());
-      const userPinyinStr = userWords.join(' ').toLowerCase();
-      const firstPinyin = currentItem.example_pinyin.split('\n')[0];
-      const targetPinyinClean = cleanPunctuation(firstPinyin).split(/\s+/).join(' ').toLowerCase();
+      if (selectedOption === null) {
+        alert("Vui lòng chọn một đáp án!");
+        return;
+      }
+      isCorrect = selectedOption;
+      correctText = `${currentItem.vocab} (${currentItem.pinyin}): ${currentItem.meaning}`;
 
-      isCorrect = (userPinyinStr === targetPinyinClean);
-      correctAnswerText = firstPinyin;
+    } else if (activeSection === 2) {
+      const targetArea = document.getElementById('targetArea');
+      const userWords = Array.from(targetArea.children).map(c => c.innerText.trim());
+      const userSentence = userWords.join(' ');
+      
+      let rawPinyin = currentItem.example_pinyin.split('\n')[0].trim();
+      let targetSentence = cleanPunctuation(rawPinyin).split(/\s+/).filter(Boolean).join(' ');
+
+      isCorrect = (userSentence.toLowerCase() === targetSentence.toLowerCase());
+      correctText = rawPinyin;
+
     } else if (activeSection === 3) {
-      const val = document.getElementById('typeInput').value;
-      const cleanTarget = cleanPunctuation(currentItem.targetCn);
-      isCorrect = (cleanPunctuation(val) === cleanTarget);
-      correctAnswerText = `${currentItem.targetCn} (${currentItem.pinyinHint})`;
+      const userInput = document.getElementById('typeInput').value.trim();
+      const targetCn = cleanPunctuation(currentItem.targetCn);
+      const cleanedUserInput = cleanPunctuation(userInput);
+
+      isCorrect = (cleanedUserInput === targetCn);
+      correctText = currentItem.targetCn;
     }
 
-    recordHistory.push({
-      item: currentItem,
-      isCorrect: isCorrect,
-      correctText: correctAnswerText
-    });
+    isAnswered = true;
+    completedInRound++;
+    updateProgress();
 
     const feedback = document.getElementById('feedback');
     feedback.classList.remove('hidden');
@@ -892,205 +788,120 @@
     if (isCorrect) {
       playSound('correct');
       feedback.className = 'feedback-box correct';
-      feedback.innerHTML = '🎉 Chính xác! Bạn làm xuất sắc lắm!';
+      feedback.innerText = '🎉 Chính xác! Tuyệt vời!';
+      recordHistory.push({ item: currentItem, correct: true });
     } else {
       playSound('wrong');
-      hearts--;
-      document.getElementById('heartCount').innerText = Math.max(0, hearts);
       feedback.className = 'feedback-box wrong';
-      feedback.innerHTML = `❌ Chưa chính xác!<br><small>Đáp án đúng: <b>${correctAnswerText}</b></small>`;
+      feedback.innerText = `❌ Chưa đúng rồi! Đáp án chuẩn: ${correctText}`;
+      
+      hearts--;
+      if (hearts < 0) hearts = 0;
+      document.getElementById('heartCount').innerText = hearts;
+
       mistakeQueue.push(currentItem);
+      recordHistory.push({ item: currentItem, correct: false });
+
+      if (hearts === 0) {
+        setTimeout(() => {
+          alert("💔 Bạn đã hết tim! Hãy xem lại báo cáo lượt học này nhé.");
+          showSummaryReport(false);
+        }, 800);
+        return;
+      }
     }
 
-    isAnswered = true;
+    document.getElementById('actionBtn').innerText = 'Tiếp theo ➔';
     saveCurrentProgress();
-    document.getElementById('actionBtn').innerText = 'Câu tiếp theo ➡️';
   }
 
   function pauseAndShowSummary() {
-    if (currentItem && !isAnswered) {
-      currentQueue.unshift(currentItem);
-    }
-    saveCurrentProgress();
-    showSummaryReport(false);
-  }
-
-  /* ---------------- QUẢN LÝ LỊCH SỬ TÚI MÙ (LOCALSTORAGE) ---------------- */
-  function get3UniqueBlindBoxQuotes() {
-    let history = [];
-    try {
-      history = JSON.parse(localStorage.getItem(BLIND_BOX_HISTORY_KEY)) || [];
-    } catch(e) { history = []; }
-
-    // Loại bỏ các câu đã xuất hiện gần đây
-    let available = BLIND_BOX_QUOTES.filter(q => !history.includes(q.zh));
-
-    // Nếu kho câu khả dụng còn dưới 3, reset lại lịch sử
-    if (available.length < 3) {
-      history = [];
-      localStorage.removeItem(BLIND_BOX_HISTORY_KEY);
-      available = [...BLIND_BOX_QUOTES];
-    }
-
-    // Xáo trộn và chọn 3 câu
-    let shuffled = [...available].sort(() => Math.random() - 0.5);
-    let selected3 = shuffled.slice(0, 3);
-
-    return selected3;
-  }
-
-  function markQuoteUsed(quoteZh) {
-    let history = [];
-    try {
-      history = JSON.parse(localStorage.getItem(BLIND_BOX_HISTORY_KEY)) || [];
-    } catch(e) { history = []; }
-
-    if (!history.includes(quoteZh)) {
-      history.push(quoteZh);
-      localStorage.setItem(BLIND_BOX_HISTORY_KEY, JSON.stringify(history));
+    if (confirm("Bạn có muốn tạm dừng và xem tổng kết lượt học hiện tại không?")) {
+      showSummaryReport(false);
     }
   }
 
-  /* ---------------- MÀN HÌNH BÁO CÁO & TÚI MÙ CUỐI BUỔI ---------------- */
-  function showSummaryReport(isCompleted = false) {
-    const totalQuestions = recordHistory.length;
-    const correctCount = recordHistory.filter(r => r.isCorrect).length;
-    const wrongList = recordHistory.filter(r => !r.isCorrect);
-    const accuracy = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
+  function showSummaryReport(isCompletedAll) {
+    clearSavedProgress();
+    
+    let totalDone = recordHistory.length;
+    let correctCount = recordHistory.filter(r => r.correct).length;
+    let wrongCount = totalDone - correctCount;
 
-    const chosenQuotes = get3UniqueBlindBoxQuotes();
-
-    let wrongDetailsHtml = '';
-    if (wrongList.length > 0) {
-      wrongDetailsHtml = `<div style="margin-top:15px; font-weight:bold; color: var(--danger);">Các câu chưa đúng trong phiên hôm nay:</div>`;
-      wrongList.forEach(w => {
-        const titleShow = w.item.questionVi || w.item.vocab || w.item.example_vi;
-        wrongDetailsHtml += `
+    let wrongListHtml = '';
+    if (mistakeQueue.length > 0) {
+      wrongListHtml = `<div style="font-weight:bold; margin-top:15px; color:var(--danger);">Các mục cần ôn lại:</div>`;
+      mistakeQueue.forEach(m => {
+        let title = m.vocab ? `${m.vocab} (${m.pinyin})` : m.questionVi;
+        let detail = m.meaning || m.targetCn || m.example_pinyin;
+        wrongListHtml += `
           <div class="wrong-item">
-            📌 <b>${titleShow}</b><br>
-            Đáp án đúng: <i>${w.correctText}</i>
+            <b>${title}</b>: ${detail}
           </div>
         `;
       });
-    } else {
-      wrongDetailsHtml = `<div style="margin-top:15px; color: var(--primary); font-weight:bold;">🌟 Bạn chưa làm sai câu nào trong phiên này!</div>`;
     }
 
-    const sectionName = activeSection === 1 ? 'Ôn Từ Vựng' : (activeSection === 2 ? 'Sắp Xếp Câu (Pinyin)' : 'Luyện Gõ Từ & Câu');
-
-    document.getElementById('quizArea').innerHTML = `
-      <div style="text-align:center;">
-        <div style="font-size:46px; margin-bottom: 5px;">${isCompleted ? '🏆' : '⏸️'}</div>
-        <h2 style="margin:0 0 8px 0; color: var(--primary);">${isCompleted ? 'HOÀN THÀNH BÀI HỌC!' : 'ĐÃ TẠM DỪNG PHIÊN HỌC'}</h2>
-        <div style="color:#666; font-size:14px;">Phần: <b>${sectionName}</b> | Tiến độ: <b>${completedInRound}/${totalInRound}</b></div>
-
-        <div class="report-card">
-          <div class="report-stat"><span>Số câu đã làm phiên này:</span> <span>${totalQuestions}</span></div>
-          <div class="report-stat"><span>Số câu làm đúng:</span> <span style="color: var(--primary);">${correctCount}</span></div>
-          <div class="report-stat"><span>Số câu chưa đúng:</span> <span style="color: var(--danger);">${wrongList.length}</span></div>
-          <div class="report-stat" style="border-bottom:none; font-size: 17px; margin-top: 5px;">
-            <span>Tỷ lệ chính xác:</span> 
-            <span style="color: ${accuracy >= 80 ? 'var(--primary)' : 'orange'};">${accuracy}%</span>
-          </div>
-          ${wrongDetailsHtml}
-        </div>
-
-        <!-- TÚI MÙ CUỐI BUỔI 🎁 -->
-        <div class="blind-box-section">
-          <div class="blind-box-title">🌷 今天，选一句话送给自己吧。</div>
-          
-          <div class="blind-boxes-container" id="blindBoxesContainer">
-            <div class="blind-box-wrapper" onclick="openBlindBox(0, this)">
-              <div class="blind-box box-anim-1">
-                <span class="blind-box-sparkle sp-1">✨</span>
-                <span class="blind-box-icon">🌿</span>
-                <span class="blind-box-sparkle sp-2">✨</span>
-              </div>
-            </div>
-
-            <div class="blind-box-wrapper" onclick="openBlindBox(1, this)">
-              <div class="blind-box box-anim-2">
-                <span class="blind-box-sparkle sp-1">✨</span>
-                <span class="blind-box-icon">✨</span>
-                <span class="blind-box-sparkle sp-2">✨</span>
-              </div>
-            </div>
-
-            <div class="blind-box-wrapper" onclick="openBlindBox(2, this)">
-              <div class="blind-box box-anim-3">
-                <span class="blind-box-sparkle sp-1">✨</span>
-                <span class="blind-box-icon">🌸</span>
-                <span class="blind-box-sparkle sp-2">✨</span>
-              </div>
-            </div>
-          </div>
-
-          <div id="blindBoxResult"></div>
-        </div>
-
-        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
-          ${mistakeQueue.length > 0 ? `
-            <button class="btn-main btn-secondary" onclick="retryMistakes()">🔄 Ôn lại câu sai (${mistakeQueue.length} câu)</button>
-          ` : ''}
-          
-          <button class="btn-main" style="background: #2563eb; border-color: #1d4ed8;" onclick="goBackToHome()">🏠 回到首页</button>
-        </div>
+    const quizArea = document.getElementById('quizArea');
+    quizArea.innerHTML = `
+      <div class="report-card">
+        <h2 style="text-align:center; color:var(--primary); margin-top:0;">📊 TỔNG KẾT PHIÊN HỌC</h2>
+        <div class="report-stat"><span>Trạng thái:</span> <span>${isCompletedAll ? '🎉 Hoàn thành bài học' : '⏸️ Tạm dừng giữa chừng'}</span></div>
+        <div class="report-stat"><span>Tổng số câu đã làm:</span> <span>${totalDone}</span></div>
+        <div class="report-stat"><span>Số câu đúng:</span> <span style="color:var(--primary);">${correctCount}</span></div>
+        <div class="report-stat"><span>Số câu sai:</span> <span style="color:var(--danger);">${wrongCount}</span></div>
+        ${wrongListHtml}
       </div>
-    `;
 
-    // Lưu tạm 3 câu túi mù được gán cho phiên này
-    window.currentSessionQuotes = chosenQuotes;
+      <div class="blind-box-section">
+        <div class="blind-box-title">🎁 Chọn một túi mù để nhận lời nhắn hôm nay:</div>
+        <div class="blind-boxes-container">
+          <div class="blind-box-wrapper box-anim-1" onclick="openBlindBox(this, 0)">
+            <div class="blind-box">
+              <span class="blind-box-sparkle sp-1">✨</span>
+              <span class="blind-box-icon">🎁</span>
+              <span class="blind-box-sparkle sp-2">🌸</span>
+            </div>
+          </div>
+          <div class="blind-box-wrapper box-anim-2" onclick="openBlindBox(this, 1)">
+            <div class="blind-box">
+              <span class="blind-box-sparkle sp-1">🌿</span>
+              <span class="blind-box-icon">🎀</span>
+              <span class="blind-box-sparkle sp-2">✨</span>
+            </div>
+          </div>
+          <div class="blind-box-wrapper box-anim-3" onclick="openBlindBox(this, 2)">
+            <div class="blind-box">
+              <span class="blind-box-sparkle sp-1">✨</span>
+              <span class="blind-box-icon">🧸</span>
+              <span class="blind-box-sparkle sp-2">🌱</span>
+            </div>
+          </div>
+        </div>
+        <div id="quoteArea"></div>
+      </div>
+
+      <button class="btn-main" onclick="startRound()" style="margin-top:20px;">🔄 Luyện tập lại lượt mới</button>
+    `;
   }
 
-  function openBlindBox(index, element) {
-    const container = document.getElementById('blindBoxesContainer');
-    const wrappers = container.querySelectorAll('.blind-box-wrapper');
-
-    // Khóa bấm các túi khác
-    wrappers.forEach((w, idx) => {
-      if (idx !== index) {
-        w.classList.add('disabled');
-      } else {
-        w.classList.add('opening');
-      }
+  function openBlindBox(element, index) {
+    document.querySelectorAll('.blind-box-wrapper').forEach(el => {
+      el.classList.add('disabled');
     });
+    element.classList.remove('disabled');
+    element.classList.add('opening');
 
-    const selectedQuote = window.currentSessionQuotes[index];
-    markQuoteUsed(selectedQuote.zh);
+    const randomQuote = BLIND_BOX_QUOTES[Math.floor(Math.random() * BLIND_BOX_QUOTES.length)];
 
     setTimeout(() => {
-      const resultArea = document.getElementById('blindBoxResult');
-      resultArea.innerHTML = `
+      document.getElementById('quoteArea').innerHTML = `
         <div class="quote-result-card">
-          <div class="quote-zh">${selectedQuote.zh}</div>
-          <div class="quote-vi">${selectedQuote.vi}</div>
+          <div class="quote-zh">${randomQuote.zh}</div>
+          <div class="quote-vi">${randomQuote.vi}</div>
         </div>
       `;
-    }, 400);
-  }
-
-  function resumeLesson() {
-    resetQuizAreaUI();
-    nextQuestion();
-  }
-
-  function resetProgressAndRestart() {
-    if (confirm("Bạn có chắc muốn xóa toàn bộ tiến độ đã lưu và học lại từ đầu không?")) {
-      clearSavedProgress();
-      resetQuizAreaUI();
-      startRound();
-    }
-  }
-
-  function retryMistakes() {
-    currentQueue = [...mistakeQueue];
-    mistakeQueue = [];
-    recordHistory = [];
-    totalInRound = currentQueue.length;
-    completedInRound = 0;
-    resetQuizAreaUI();
-    updateProgress();
-    nextQuestion();
+    }, 600);
   }
 </script>
 
